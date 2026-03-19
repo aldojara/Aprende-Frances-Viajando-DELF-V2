@@ -1,0 +1,643 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Le passé composé — Aprende Francés Viajando</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    :root {
+      --bg:           #F7F6F2;
+      --bg-white:     #FFFFFF;
+      --bg-soft:      #EFEDE8;
+      --bg-card:      #FFFFFF;
+      --border:       #E2DED7;
+      --border-dark:  #C8C3BB;
+      --text-dark:    #1A1814;
+      --text-body:    #3D3A35;
+      --text-muted:   #7A756D;
+      --text-light:   #ABA69E;
+      --blue:         #0055A4;
+      --blue-light:   #EBF2FB;
+      --blue-mid:     #3B82F6;
+      --red:          #C0392B;
+      --red-light:    #FAEAEA;
+      --gold:         #B8860B;
+      --gold-light:   #FDF3DC;
+      --shadow-sm: 0 1px 3px rgba(0,0,0,.06), 0 1px 2px rgba(0,0,0,.04);
+      --shadow-md: 0 4px 16px rgba(0,0,0,.09), 0 1px 4px rgba(0,0,0,.05);
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Inter', system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--text-body);
+      line-height: 1.65;
+    }
+    .font-display { font-family: 'Playfair Display', Georgia, serif; }
+
+    .tricolor-bar {
+      height: 3px;
+      background: linear-gradient(90deg, #0055A4 0% 33.3%, #FFFFFF 33.3% 66.6%, #C0392B 66.6% 100%);
+    }
+    .tricolor-title {
+      background: linear-gradient(120deg, #0055A4 0%, #5B8DD9 25%, #C87E6E 55%, #C0392B 100%);
+      background-size: 250% auto;
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      animation: tricolor-sweep 7s ease-in-out infinite;
+    }
+    @keyframes tricolor-sweep {
+      0%   { background-position: 0% center; }
+      50%  { background-position: 100% center; }
+      100% { background-position: 0% center; }
+    }
+    .tricolor-line {
+      display: flex;
+      width: 72px;
+      height: 2px;
+      margin: 0 auto;
+      border-radius: 99px;
+      overflow: hidden;
+    }
+    .tricolor-line span { flex: 1; }
+    .hero-bg {
+      background:
+        radial-gradient(ellipse 75% 60% at 50% -8%, rgba(0,85,164,.07) 0%, transparent 65%),
+        radial-gradient(ellipse 35% 35% at 88% 70%, rgba(192,57,43,.05) 0%, transparent 55%),
+        radial-gradient(ellipse 30% 30% at 12% 75%, rgba(184,134,11,.04) 0%, transparent 55%),
+        var(--bg-white);
+    }
+    .navbar {
+      background: rgba(247,246,242,.93);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--border);
+    }
+    .btn-primary {
+      background: var(--blue);
+      color: #fff;
+      font-weight: 600;
+      padding: .65rem 1.45rem;
+      border-radius: .6rem;
+      transition: all .18s;
+      display: inline-flex;
+      align-items: center;
+      gap: .4rem;
+      text-decoration: none;
+      font-size: .88rem;
+      box-shadow: 0 2px 8px rgba(0,85,164,.22);
+    }
+    .btn-primary:hover {
+      background: #004494;
+      box-shadow: 0 4px 18px rgba(0,85,164,.32);
+      transform: translateY(-1px);
+    }
+    .btn-outline {
+      border: 1.5px solid var(--border-dark);
+      color: var(--text-body);
+      font-weight: 500;
+      padding: .65rem 1.45rem;
+      border-radius: .6rem;
+      transition: all .18s;
+      display: inline-flex;
+      align-items: center;
+      gap: .4rem;
+      text-decoration: none;
+      font-size: .88rem;
+      background: var(--bg-white);
+    }
+    .btn-outline:hover {
+      border-color: var(--blue);
+      color: var(--blue);
+      transform: translateY(-1px);
+    }
+    .eyebrow {
+      display: block;
+      font-size: .68rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .14em;
+      color: var(--blue);
+      margin-bottom: .45rem;
+    }
+    .badge-b1 {
+      background: var(--blue-light);
+      color: var(--blue);
+      border: 1px solid rgba(0,85,164,.2);
+      padding: .25rem .8rem;
+      border-radius: 99px;
+      font-size: .72rem;
+      font-weight: 700;
+    }
+    .badge-soft {
+      background: var(--gold-light);
+      color: var(--gold);
+      border: 1px solid rgba(184,134,11,.2);
+      padding: .25rem .8rem;
+      border-radius: 99px;
+      font-size: .72rem;
+      font-weight: 600;
+    }
+    .sidebar { position: sticky; top: 5rem; }
+    .sidebar-link {
+      display: block;
+      padding: .45rem .8rem;
+      font-size: .82rem;
+      color: var(--text-muted);
+      border-left: 2px solid var(--border);
+      text-decoration: none;
+      transition: all .13s;
+    }
+    .sidebar-link:hover,
+    .sidebar-link.active {
+      color: var(--blue);
+      border-color: var(--blue);
+      background: var(--blue-light);
+    }
+    .info-box {
+      padding: 1rem 1.25rem;
+      border-radius: .75rem;
+      border-left: 3px solid var(--blue);
+      background: var(--blue-light);
+      font-size: .85rem;
+      color: var(--text-body);
+    }
+    .sec-divider { border: none; border-top: 1px solid var(--border); margin: 0; }
+    .section-card {
+      background: var(--bg-white);
+      border: 1px solid var(--border);
+      border-radius: .95rem;
+      padding: 1.5rem;
+      box-shadow: var(--shadow-sm);
+    }
+    .comp-card {
+      background: var(--bg-white);
+      border: 1px solid var(--border);
+      border-radius: .875rem;
+      padding: 1.25rem;
+      box-shadow: var(--shadow-sm);
+      transition: all .18s;
+    }
+    .comp-card:hover {
+      box-shadow: var(--shadow-md);
+      transform: translateY(-2px);
+    }
+    .mini-card {
+      background: linear-gradient(180deg, #fff, #fcfbf8);
+      border: 1px solid var(--border);
+      border-radius: .9rem;
+      padding: 1rem;
+    }
+    .subtema {
+      display: inline-flex;
+      align-items: center;
+      padding: .28rem .72rem;
+      border-radius: 99px;
+      background: var(--bg-white);
+      border: 1px solid var(--border);
+      font-size: .78rem;
+      color: var(--text-body);
+      margin: .22rem;
+      transition: all .13s;
+      box-shadow: var(--shadow-sm);
+      text-decoration: none;
+    }
+    .subtema:hover {
+      border-color: var(--blue);
+      color: var(--blue);
+      background: var(--blue-light);
+    }
+    .subtema.sub-item {
+      background: transparent;
+      border-style: dashed;
+      border-color: var(--border-dark);
+      font-size: .74rem;
+      color: var(--text-muted);
+      box-shadow: none;
+    }
+    .resource-tabs {
+      display: flex;
+      gap: .65rem;
+      flex-wrap: wrap;
+      margin-bottom: 1.1rem;
+    }
+    .resource-tab {
+      padding: .8rem 1.05rem;
+      border-radius: .75rem;
+      border: 1.5px solid var(--border);
+      background: var(--bg-white);
+      color: var(--text-muted);
+      font-weight: 600;
+      font-size: .86rem;
+      cursor: pointer;
+      transition: all .16s;
+      box-shadow: var(--shadow-sm);
+    }
+    .resource-tab.active,
+    .resource-tab:hover {
+      color: var(--blue);
+      border-color: rgba(0,85,164,.28);
+      background: var(--blue-light);
+    }
+    .resource-panel { display: none; }
+    .resource-panel.active { display: block; }
+    .formula-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: .9rem;
+    }
+    .formula-box {
+      padding: 1rem;
+      border-radius: .85rem;
+      background: linear-gradient(180deg, #ffffff, #f7f9fc);
+      border: 1px solid rgba(0,85,164,.12);
+    }
+    .formula-box strong {
+      display: block;
+      margin-bottom: .2rem;
+      color: var(--text-dark);
+    }
+    .resource-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1rem;
+    }
+    .media-card {
+      border: 1px solid var(--border);
+      border-radius: 1rem;
+      overflow: hidden;
+      background: #fff;
+      box-shadow: var(--shadow-sm);
+    }
+    .media-thumb {
+      aspect-ratio: 16 / 9;
+      position: relative;
+      display: grid;
+      place-items: center;
+      background:
+        linear-gradient(135deg, rgba(0,85,164,.08), rgba(192,57,43,.05)),
+        radial-gradient(circle at 20% 20%, rgba(184,134,11,.18), transparent 18%),
+        #f7f6f2;
+      color: var(--text-dark);
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: clamp(1.1rem, 2vw, 1.8rem);
+      text-align: center;
+      padding: 1rem;
+    }
+    .play-pill {
+      position: absolute;
+      width: 4.1rem;
+      height: 2.8rem;
+      display: grid;
+      place-items: center;
+      border-radius: .9rem;
+      background: #e53935;
+      color: #fff;
+      font-size: 1.15rem;
+      box-shadow: 0 10px 18px rgba(229,57,53,.26);
+    }
+
+    @media (max-width: 1024px) {
+      .formula-grid,
+      .resource-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+<div class="tricolor-bar"></div>
+
+<header class="navbar sticky top-0 z-50">
+  <div class="max-w-6xl mx-auto px-5 py-3.5 flex items-center justify-between">
+    <a href="index.html" class="font-display font-bold text-lg" style="color:var(--text-dark);text-decoration:none">
+      Aprende
+      <span style="background:linear-gradient(100deg,#0055A4 0%,#6A9FD4 40%,#C0392B 100%);-webkit-background-clip:text;background-clip:text;color:transparent"> Francés </span>
+      Viajando
+    </a>
+    <nav class="hidden md:flex gap-6 text-sm" style="color:var(--text-muted)">
+      <a href="index.html" class="hover:text-blue-700 transition-colors">Inicio</a>
+      <a href="cursos.html" class="hover:text-blue-700 transition-colors">Cursos</a>
+      <a href="ejercicios.html" class="hover:text-blue-700 transition-colors">Ejercicios (IA)</a>
+      <a href="index.html#grammaire" style="color:var(--blue);font-weight:600">DELF &amp; Grammaire</a>
+      <a href="recursos.html" class="hover:text-blue-700 transition-colors">Recursos</a>
+      <a href="contacto.html" class="hover:text-blue-700 transition-colors">Contacto</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero-bg px-5 text-center" style="padding-top:4.8rem;padding-bottom:4.2rem;border-bottom:1px solid var(--border)">
+  <span class="eyebrow">Sous-thème individuel · Grammaire B1</span>
+  <div class="max-w-4xl mx-auto">
+    <div class="text-xs mb-5" style="color:var(--text-light)">
+      Accueil / Grammaire / Les modes et les temps / Le passé composé
+    </div>
+    <h1 class="font-display font-black mb-4 leading-tight" style="font-size:clamp(2.4rem,6vw,4.8rem)">
+      <span class="tricolor-title">Le passé composé</span>
+    </h1>
+    <div class="tricolor-line mb-6">
+      <span style="background:#0055A4"></span>
+      <span style="background:#C8C0B8"></span>
+      <span style="background:#C0392B"></span>
+    </div>
+    <p class="max-w-3xl mx-auto text-base mb-7" style="color:var(--text-muted)">
+      Utiliser le passé composé pour parler d'actions terminées, de faits ponctuels et d'une succession d'événements.
+      Esta página piloto organiza el aprendizaje en dos bloques claros: <strong>Maîtriser le thème</strong> y <strong>Ressources visuelles</strong>.
+    </p>
+    <div class="flex justify-center gap-2 mb-8 flex-wrap">
+      <span class="badge-b1">DELF B1</span>
+      <span class="badge-soft">Temps du passé</span>
+      <span class="badge-b1">Essentiel</span>
+    </div>
+    <div class="flex justify-center gap-3 flex-wrap">
+      <a href="#maitriser" class="btn-primary">📘 Maîtriser le thème</a>
+      <a href="#ressources" class="btn-outline">🎥 Ressources visuelles</a>
+    </div>
+  </div>
+</section>
+
+<hr class="sec-divider">
+
+<div class="max-w-6xl mx-auto px-5 py-12 flex gap-10">
+  <aside class="hidden lg:block w-56 shrink-0">
+    <div class="sidebar">
+      <div style="font-size:.67rem;font-weight:700;text-transform:uppercase;letter-spacing:.12em;color:var(--text-light);margin-bottom:.75rem">En esta página</div>
+      <nav class="space-y-0.5">
+        <a href="#maitriser" class="sidebar-link active">Maîtriser le thème</a>
+        <a href="#ressources" class="sidebar-link">Ressources visuelles</a>
+      </nav>
+    </div>
+  </aside>
+
+  <main class="flex-1 min-w-0">
+    <section class="mb-8">
+      <div class="info-box">
+        <strong style="color:var(--blue)">Objectif du sous-thème:</strong>
+        comprender la estructura del passé composé, distinguir entre <strong>avoir</strong> y <strong>être</strong>,
+        y reconocer cuándo se opone al <strong>imparfait</strong> en contextos típicos del DELF B1.
+      </div>
+    </section>
+
+    <section id="maitriser" class="mb-12">
+      <span class="eyebrow">Bloc principal</span>
+      <h2 class="font-display text-4xl font-bold mb-2" style="color:var(--text-dark)">Maîtriser le thème</h2>
+      <p class="mb-6 text-sm" style="color:var(--text-muted);max-width:680px">
+        Este bloque reúne lo esencial para estudiar el subtema sin dividir demasiado la experiencia:
+        explicación, estructura, ejemplos y práctica.
+      </p>
+
+      <div class="section-card mb-5">
+        <div class="grid md:grid-cols-[1.15fr_.85fr] gap-5">
+          <div>
+            <div class="text-xs font-bold uppercase tracking-widest mb-2" style="color:var(--blue)">Résumé rapide</div>
+            <h3 class="text-lg font-semibold mb-3" style="color:var(--text-dark)">Comment fonctionne le passé composé</h3>
+            <p class="text-sm mb-4" style="color:var(--text-muted)">
+              Le passé composé se forme avec <strong>avoir</strong> ou <strong>être</strong> au présent
+              + le participe passé. On l'utilise pour des actions terminées, des événements ponctuels
+              et des faits principaux qui font avancer un récit.
+            </p>
+
+            <div class="formula-grid">
+              <div class="formula-box">
+                <strong>1. Sujet</strong>
+                Je, tu, il, nous...
+              </div>
+              <div class="formula-box">
+                <strong>2. Auxiliaire</strong>
+                avoir / être au présent
+              </div>
+              <div class="formula-box">
+                <strong>3. Participe passé</strong>
+                mangé, fini, arrivé...
+              </div>
+            </div>
+          </div>
+
+          <div class="mini-card">
+            <div class="text-xs font-bold uppercase tracking-widest mb-2" style="color:var(--gold)">Points clés</div>
+            <ul class="text-sm" style="color:var(--text-muted);padding-left:1rem">
+              <li>Acción terminada.</li>
+              <li>Événement ponctuel dans le passé.</li>
+              <li>Succession de hechos.</li>
+              <li>Con <strong>être</strong>, el participio puede concordar.</li>
+              <li>Se contrasta mucho con <strong>l'imparfait</strong> en B1.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-4 mb-5">
+        <div class="comp-card">
+          <div class="text-xs font-bold uppercase tracking-widest mb-2" style="color:var(--blue)">Usage</div>
+          <div class="text-sm font-semibold mb-2" style="color:var(--text-dark)">Quand est-ce qu'on l'utilise?</div>
+          <p class="text-sm" style="color:var(--text-muted)">
+            Para una acción terminada, un hecho único o una serie de eventos principales en una narración.
+          </p>
+        </div>
+        <div class="comp-card">
+          <div class="text-xs font-bold uppercase tracking-widest mb-2" style="color:var(--red)">Erreur fréquente</div>
+          <div class="text-sm font-semibold mb-2" style="color:var(--text-dark)">Passé composé vs imparfait</div>
+          <p class="text-sm" style="color:var(--text-muted)">
+            El passé composé cuenta hechos; el imparfait describe contexto, hábitos o acciones en progreso.
+          </p>
+        </div>
+      </div>
+
+      <div class="section-card mb-5">
+        <div class="text-xs font-bold uppercase tracking-widest mb-2" style="color:var(--blue-mid)">Exemples utiles</div>
+        <div class="grid md:grid-cols-2 gap-4">
+          <div class="mini-card">
+            <div class="text-base font-semibold mb-1" style="color:var(--text-dark)">J'ai visité Paris l'année dernière.</div>
+            <div class="text-sm mb-2" style="color:var(--text-muted)">Visité París el año pasado.</div>
+            <span class="subtema sub-item">Acción terminada en momento concreto</span>
+          </div>
+          <div class="mini-card">
+            <div class="text-base font-semibold mb-1" style="color:var(--text-dark)">Elle est arrivée à huit heures.</div>
+            <div class="text-sm mb-2" style="color:var(--text-muted)">Ella llegó a las ocho.</div>
+            <span class="subtema sub-item">Uso con être</span>
+          </div>
+          <div class="mini-card">
+            <div class="text-base font-semibold mb-1" style="color:var(--text-dark)">Nous avons regardé le film puis nous avons dîné.</div>
+            <div class="text-sm mb-2" style="color:var(--text-muted)">Vimos la película y luego cenamos.</div>
+            <span class="subtema sub-item">Secuencia de eventos</span>
+          </div>
+          <div class="mini-card">
+            <div class="text-base font-semibold mb-1" style="color:var(--text-dark)">Quand j'étais petit, je jouais ici. Hier, j'ai rejoué.</div>
+            <div class="text-sm mb-2" style="color:var(--text-muted)">Contraste entre hábito y hecho puntual.</div>
+            <span class="subtema sub-item">Comparación con imparfait</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="section-card">
+        <div class="text-xs font-bold uppercase tracking-widest mb-2" style="color:var(--gold)">Exercices</div>
+        <div class="grid md:grid-cols-3 gap-4">
+          <div class="comp-card">
+            <div class="text-sm font-semibold mb-2" style="color:var(--text-dark)">Complète avec l'auxiliaire correct</div>
+            <ul class="text-sm" style="color:var(--text-muted);padding-left:1rem">
+              <li>Marie ___ arrivée tôt.</li>
+              <li>Nous ___ mangé au restaurant.</li>
+              <li>Je ___ parti en train.</li>
+            </ul>
+          </div>
+          <div class="comp-card">
+            <div class="text-sm font-semibold mb-2" style="color:var(--text-dark)">Choisis entre passé composé et imparfait</div>
+            <ul class="text-sm" style="color:var(--text-muted);padding-left:1rem">
+              <li>Quand j'étais petit, je ___ souvent au parc.</li>
+              <li>Hier soir, nous ___ un documentaire.</li>
+            </ul>
+          </div>
+          <div class="comp-card">
+            <div class="text-sm font-semibold mb-2" style="color:var(--text-dark)">Transforme au passé composé</div>
+            <ul class="text-sm" style="color:var(--text-muted);padding-left:1rem">
+              <li>Je visite le musée.</li>
+              <li>Ils finissent leurs devoirs.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="ressources" class="mb-8">
+      <span class="eyebrow">Bloc visuel</span>
+      <h2 class="font-display text-4xl font-bold mb-2" style="color:var(--text-dark)">Ressources visuelles</h2>
+      <p class="mb-6 text-sm" style="color:var(--text-muted);max-width:760px">
+        Este bloque concentra todo lo visual y complementario: videos explicativos, infografías, fichas de apoyo y materiales relacionados.
+      </p>
+
+      <div class="section-card">
+        <div class="resource-tabs">
+          <button class="resource-tab active" data-panel="videos">🎥 Vidéos explicatives</button>
+          <button class="resource-tab" data-panel="infographies">🧭 Infographies et autres ressources</button>
+        </div>
+
+        <div id="resource-videos" class="resource-panel active">
+          <div class="resource-grid mb-5">
+            <article class="media-card">
+              <div class="media-thumb">
+                <div class="play-pill">▶</div>
+                Le passé composé
+              </div>
+              <div class="p-4">
+                <div class="text-sm font-semibold mb-1" style="color:var(--text-dark)">Niveau B1: Le passé composé en français</div>
+                <p class="text-sm mb-3" style="color:var(--text-muted)">Vidéo principal para entender estructura, usos y errores frecuentes.</p>
+                <a href="https://www.youtube.com/@Aprende.Frances.Viajando" target="_blank" rel="noopener" class="subtema">Ver canal</a>
+              </div>
+            </article>
+
+            <article class="media-card">
+              <div class="media-thumb">
+                <div class="play-pill">▶</div>
+                Passé composé vs imparfait
+              </div>
+              <div class="p-4">
+                <div class="text-sm font-semibold mb-1" style="color:var(--text-dark)">Comparaison essentielle DELF B1</div>
+                <p class="text-sm mb-3" style="color:var(--text-muted)">Ideal para alumnos que prefieren entender el contraste de forma visual.</p>
+                <a href="https://www.youtube.com/@Aprende.Frances.Viajando" target="_blank" rel="noopener" class="subtema">Explorar videos</a>
+              </div>
+            </article>
+          </div>
+
+          <div class="mini-card">
+            <div class="text-sm font-semibold mb-2" style="color:var(--text-dark)">Sugerencia de uso</div>
+            <p class="text-sm" style="color:var(--text-muted)">
+              Mira un video primero para fijar la estructura general y vuelve luego al bloque <strong>Maîtriser le thème</strong> para practicar con más precisión.
+            </p>
+          </div>
+        </div>
+
+        <div id="resource-infographies" class="resource-panel">
+          <div class="resource-grid mb-5">
+            <article class="media-card">
+              <div class="media-thumb" style="background:linear-gradient(135deg,#ebf2fb,#ffffff)">
+                Fiche visuelle
+              </div>
+              <div class="p-4">
+                <div class="text-sm font-semibold mb-1" style="color:var(--text-dark)">Ficha rápida de estructura</div>
+                <p class="text-sm mb-3" style="color:var(--text-muted)">Resumen visual con auxiliares, participio y concordancia.</p>
+                <a href="#maitriser" class="subtema">Ver estructura</a>
+              </div>
+            </article>
+
+            <article class="media-card">
+              <div class="media-thumb" style="background:linear-gradient(135deg,#fdf3dc,#fffaf0)">
+                Checklist DELF
+              </div>
+              <div class="p-4">
+                <div class="text-sm font-semibold mb-1" style="color:var(--text-dark)">Errores frecuentes y correcciones</div>
+                <p class="text-sm mb-3" style="color:var(--text-muted)">Checklist breve para repasar antes de escribir o practicar.</p>
+                <a href="#maitriser" class="subtema">Revisar errores</a>
+              </div>
+            </article>
+          </div>
+
+          <div class="grid md:grid-cols-2 gap-4">
+            <div class="mini-card">
+              <div class="text-sm font-semibold mb-2" style="color:var(--text-dark)">Otros materiales</div>
+              <div class="flex flex-wrap">
+                <a href="#maitriser" class="subtema">PDF descargable</a>
+                <a href="#maitriser" class="subtema">Flashcards</a>
+                <a href="#maitriser" class="subtema">Audio corto</a>
+              </div>
+            </div>
+            <div class="mini-card">
+              <div class="text-sm font-semibold mb-2" style="color:var(--text-dark)">Temas relacionados</div>
+              <div class="flex flex-wrap">
+                <a href="index.html#mod1" class="subtema">L'imparfait</a>
+                <a href="index.html#mod1" class="subtema">Le plus-que-parfait</a>
+                <a href="index.html#mod2" class="subtema">Le discours rapporté</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+</div>
+
+<footer style="border-top:1px solid var(--border);background:var(--bg-soft)">
+  <div class="tricolor-bar"></div>
+  <div class="max-w-6xl mx-auto px-5 py-7 flex flex-col md:flex-row items-center justify-between gap-4">
+    <div class="font-display font-bold" style="color:var(--text-dark)">
+      Aprende <span style="color:var(--blue)">Francés</span> Viajando
+    </div>
+    <div class="flex gap-5">
+      <a href="https://www.youtube.com/@Aprende.Frances.Viajando" target="_blank" rel="noopener"
+         style="color:var(--text-muted);transition:color .2s"
+         onmouseover="this.style.color='#dc2626'" onmouseout="this.style.color='var(--text-muted)'">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" fill="currentColor" style="width:1.2rem;height:1.2rem">
+          <path d="M549.65 124.08c-6.28-23.65-24.76-42.16-48.39-48.45C458.8 64 288 64 288 64s-170.8 0-213.26 11.63c-23.63 6.29-42.11 24.8-48.39 48.45C16 166.53 16 256.03 16 256.03s0 89.51 10.35 131.96c6.28 23.65 24.76 42.16 48.39 48.45C117.2 448 288 448 288 448s170.8 0 213.26-11.63c23.63-6.29 42.11-24.8 48.39-48.45C560 345.54 560 256.03 560 256.03s0-89.5-10.35-131.95zM232 338.55V173.51l142.74 82.52L232 338.55z"/>
+        </svg>
+      </a>
+      <a href="https://www.tiktok.com/@AldoJara" target="_blank" rel="noopener"
+         style="color:var(--text-muted);transition:color .2s"
+         onmouseover="this.style.color='var(--blue)'" onmouseout="this.style.color='var(--text-muted)'">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" fill="currentColor" style="width:1.2rem;height:1.2rem">
+          <path d="M448,209.9v102c-45.4,0-87.3-14.7-121.1-39.4V357c0,85.1-68.9,155-153.9,155S19,442.1,19,357S87.9,202,173,202h0.1v102c-23.2,0-44.2,9.4-59.6,24.6c-15.3,15.2-24.7,36.2-24.7,59.4c0,46.4,37.8,84.2,84.3,84.2c46.4,0,84.3-37.8,84.3-84.2V0h95.7c8.5,47.8,49.5,84.8,98.9,84.8V209.9z"/>
+        </svg>
+      </a>
+    </div>
+    <div class="text-xs" style="color:var(--text-light)">© 2026 Aldo Jara — Aprende Francés Viajando</div>
+  </div>
+</footer>
+
+<script>
+  document.querySelectorAll('.resource-tab').forEach(tab => {
+    tab.addEventListener('click', () => {
+      tab.parentElement.querySelectorAll('.resource-tab').forEach(item => item.classList.remove('active'));
+      tab.classList.add('active');
+      const card = tab.closest('.section-card');
+      card.querySelectorAll('.resource-panel').forEach(panel => panel.classList.remove('active'));
+      const panel = card.querySelector('#resource-' + tab.dataset.panel);
+      if (panel) panel.classList.add('active');
+    });
+  });
+</script>
+</body>
+</html>
