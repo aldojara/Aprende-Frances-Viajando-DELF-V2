@@ -144,6 +144,59 @@
       font-size: .72rem;
       font-weight: 600;
     }
+    .breadcrumbs {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: .35rem;
+      font-size: .82rem;
+      margin-bottom: 1.2rem;
+      color: var(--text-light);
+    }
+    .breadcrumbs a {
+      color: var(--text-muted);
+      text-decoration: none;
+      transition: color .15s, background .15s;
+      padding: .12rem .35rem;
+      border-radius: .45rem;
+    }
+    .breadcrumbs a:hover {
+      color: var(--blue);
+      background: var(--blue-light);
+    }
+    .breadcrumbs-current {
+      color: var(--text-dark);
+      font-weight: 600;
+      padding: .12rem .35rem;
+    }
+    .hero-nav {
+      display: flex;
+      justify-content: center;
+      gap: .75rem;
+      flex-wrap: wrap;
+      margin-top: 1rem;
+    }
+    .hero-nav-link {
+      display: inline-flex;
+      align-items: center;
+      gap: .4rem;
+      padding: .55rem .95rem;
+      border-radius: .75rem;
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,.78);
+      color: var(--text-body);
+      text-decoration: none;
+      font-size: .82rem;
+      font-weight: 600;
+      box-shadow: var(--shadow-sm);
+      transition: all .16s;
+    }
+    .hero-nav-link:hover {
+      color: var(--blue);
+      border-color: rgba(0,85,164,.26);
+      background: var(--blue-light);
+      transform: translateY(-1px);
+    }
     .sidebar { position: sticky; top: 5rem; }
     .sidebar-link {
       display: block;
@@ -302,10 +355,54 @@
       font-size: 1.15rem;
       box-shadow: 0 10px 18px rgba(229,57,53,.26);
     }
+    .pager-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1rem;
+    }
+    .pager-card {
+      display: block;
+      text-decoration: none;
+      color: inherit;
+      background: linear-gradient(180deg, #fff, #fcfbf8);
+      border: 1px solid var(--border);
+      border-radius: .95rem;
+      padding: 1rem 1.05rem;
+      box-shadow: var(--shadow-sm);
+      transition: all .18s;
+    }
+    .pager-card:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-md);
+      border-color: rgba(0,85,164,.2);
+    }
+    .pager-label {
+      display: block;
+      font-size: .68rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .12em;
+      margin-bottom: .3rem;
+      color: var(--text-light);
+    }
+    .pager-title {
+      display: block;
+      font-size: .95rem;
+      font-weight: 600;
+      color: var(--text-dark);
+      line-height: 1.4;
+    }
+    .pager-meta {
+      display: block;
+      margin-top: .35rem;
+      font-size: .8rem;
+      color: var(--text-muted);
+    }
 
     @media (max-width: 1024px) {
       .formula-grid,
-      .resource-grid {
+      .resource-grid,
+      .pager-grid {
         grid-template-columns: 1fr;
       }
     }
@@ -335,9 +432,15 @@
 <section class="hero-bg px-5 text-center" style="padding-top:4.8rem;padding-bottom:4.2rem;border-bottom:1px solid var(--border)">
   <span class="eyebrow">Sous-thème individuel · Grammaire B1</span>
   <div class="max-w-4xl mx-auto">
-    <div class="text-xs mb-5" style="color:var(--text-light)">
-      Accueil / Grammaire / Les modes et les temps / Le passé composé
-    </div>
+    <nav class="breadcrumbs" aria-label="Breadcrumb">
+      <a href="index.html">Accueil</a>
+      <span>/</span>
+      <a href="index.html#grammaire">Grammaire</a>
+      <span>/</span>
+      <a href="index.html#mod1">Les modes et les temps</a>
+      <span>/</span>
+      <span class="breadcrumbs-current">Le passé composé</span>
+    </nav>
     <h1 class="font-display font-black mb-4 leading-tight" style="font-size:clamp(2.4rem,6vw,4.8rem)">
       <span class="tricolor-title">Le passé composé</span>
     </h1>
@@ -358,6 +461,11 @@
     <div class="flex justify-center gap-3 flex-wrap">
       <a href="#maitriser" class="btn-primary">📘 Maîtriser le thème</a>
       <a href="#ressources" class="btn-outline">🎥 Ressources visuelles</a>
+    </div>
+    <div class="hero-nav">
+      <a href="index.html" class="hero-nav-link">⌂ Retour à l'accueil</a>
+      <a href="index.html#mod1" class="hero-nav-link">← Retour au module</a>
+      <a href="index.html#mod1" class="hero-nav-link">Thème suivant: L'imparfait →</a>
     </div>
   </div>
 </section>
@@ -596,6 +704,32 @@
             </div>
           </div>
         </div>
+      </div>
+    </section>
+
+    <section class="mb-8">
+      <span class="eyebrow">Navigation</span>
+      <h2 class="font-display text-4xl font-bold mb-2" style="color:var(--text-dark)">Continuer</h2>
+      <p class="mb-6 text-sm" style="color:var(--text-muted);max-width:720px">
+        Si quieres seguir explorando, aquí tienes accesos rápidos para volver al inicio, regresar al módulo o pasar al siguiente subtema.
+      </p>
+
+      <div class="pager-grid">
+        <a href="index.html" class="pager-card">
+          <span class="pager-label">Accueil</span>
+          <span class="pager-title">Volver al inicio</span>
+          <span class="pager-meta">Revenir à la page principale du site</span>
+        </a>
+        <a href="index.html#mod1" class="pager-card">
+          <span class="pager-label">Module</span>
+          <span class="pager-title">Les modes et les temps</span>
+          <span class="pager-meta">Regresar al listado completo del módulo</span>
+        </a>
+        <a href="index.html#mod1" class="pager-card">
+          <span class="pager-label">Suivant</span>
+          <span class="pager-title">L'imparfait</span>
+          <span class="pager-meta">Siguiente subtema recomendado</span>
+        </a>
       </div>
     </section>
   </main>
