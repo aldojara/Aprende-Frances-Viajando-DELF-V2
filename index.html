@@ -1,0 +1,812 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>DELF & Grammaire — Aprende Francés Viajando</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    :root {
+      --bg:           #F7F6F2;
+      --bg-white:     #FFFFFF;
+      --bg-soft:      #EFEDE8;
+      --bg-card:      #FFFFFF;
+      --border:       #E2DED7;
+      --border-dark:  #C8C3BB;
+
+      --text-dark:    #1A1814;
+      --text-body:    #3D3A35;
+      --text-muted:   #7A756D;
+      --text-light:   #ABA69E;
+
+      --blue:         #0055A4;
+      --blue-light:   #EBF2FB;
+      --blue-mid:     #3B82F6;
+      --red:          #C0392B;
+      --red-light:    #FAEAEA;
+      --gold:         #B8860B;
+      --gold-light:   #FDF3DC;
+
+      --shadow-sm: 0 1px 3px rgba(0,0,0,.06), 0 1px 2px rgba(0,0,0,.04);
+      --shadow-md: 0 4px 16px rgba(0,0,0,.09), 0 1px 4px rgba(0,0,0,.05);
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Inter', system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--text-body);
+      line-height: 1.65;
+    }
+    .font-display { font-family: 'Playfair Display', Georgia, serif; }
+
+    /* ════════════════════════════════════
+       BARRA TRICOLOR — detalle de identidad
+    ════════════════════════════════════ */
+    .tricolor-bar {
+      height: 3px;
+      background: linear-gradient(
+        90deg,
+        #0055A4 0% 33.3%,
+        #FFFFFF 33.3% 66.6%,
+        #C0392B 66.6% 100%
+      );
+    }
+
+    /* ════════════════════════════════════
+       GRADIENTE DINÁMICO en título hero
+       Adaptado para fondo claro:
+       Azul Francia → Salmón → Rojo Francia
+    ════════════════════════════════════ */
+    .tricolor-title {
+      background: linear-gradient(
+        120deg,
+        #0055A4  0%,
+        #5B8DD9 25%,
+        #C87E6E 55%,
+        #C0392B 100%
+      );
+      background-size: 250% auto;
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      animation: tricolor-sweep 7s ease-in-out infinite;
+    }
+    @keyframes tricolor-sweep {
+      0%   { background-position: 0%   center; }
+      50%  { background-position: 100% center; }
+      100% { background-position: 0%   center; }
+    }
+
+    /* ════════════════════════════════════
+       LÍNEA DECORATIVA TRICOLOR en hero
+    ════════════════════════════════════ */
+    .tricolor-line {
+      display: flex;
+      width: 72px;
+      height: 2px;
+      margin: 0 auto;
+      border-radius: 99px;
+      overflow: hidden;
+    }
+    .tricolor-line span { flex: 1; }
+
+    /* ════════════════════════════════════
+       HERO — gradiente sutil en fondo claro
+    ════════════════════════════════════ */
+    .hero-bg {
+      background:
+        radial-gradient(ellipse 75% 60% at 50% -8%,  rgba(0,85,164,.07)  0%, transparent 65%),
+        radial-gradient(ellipse 35% 35% at 88% 70%, rgba(192,57,43,.05)  0%, transparent 55%),
+        radial-gradient(ellipse 30% 30% at 12% 75%, rgba(184,134,11,.04) 0%, transparent 55%),
+        var(--bg-white);
+    }
+
+    /* ════════════════════════════════════
+       NAVBAR
+    ════════════════════════════════════ */
+    .navbar {
+      background: rgba(247,246,242,.93);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    /* ════════════════════════════════════
+       BOTONES
+    ════════════════════════════════════ */
+    .btn-primary {
+      background: var(--blue);
+      color: #fff;
+      font-weight: 600;
+      padding: .65rem 1.45rem;
+      border-radius: .6rem;
+      transition: all .18s;
+      display: inline-flex;
+      align-items: center;
+      gap: .4rem;
+      text-decoration: none;
+      font-size: .88rem;
+      box-shadow: 0 2px 8px rgba(0,85,164,.22);
+    }
+    .btn-primary:hover {
+      background: #004494;
+      box-shadow: 0 4px 18px rgba(0,85,164,.32);
+      transform: translateY(-1px);
+    }
+    .btn-outline {
+      border: 1.5px solid var(--border-dark);
+      color: var(--text-body);
+      font-weight: 500;
+      padding: .65rem 1.45rem;
+      border-radius: .6rem;
+      transition: all .18s;
+      display: inline-flex;
+      align-items: center;
+      gap: .4rem;
+      text-decoration: none;
+      font-size: .88rem;
+      background: var(--bg-white);
+    }
+    .btn-outline:hover { border-color: var(--blue); color: var(--blue); transform: translateY(-1px); }
+
+    /* ════════════════════════════════════
+       EYEBROW / LABEL
+    ════════════════════════════════════ */
+    .eyebrow {
+      display: block;
+      font-size: .68rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .14em;
+      color: var(--blue);
+      margin-bottom: .45rem;
+    }
+
+    /* ════════════════════════════════════
+       STATS
+    ════════════════════════════════════ */
+    .stat-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.4rem;
+      font-weight: 700;
+      line-height: 1;
+      color: var(--text-dark);
+    }
+    .stat-label { font-size: .74rem; color: var(--text-muted); margin-top: .3rem; }
+
+    /* ════════════════════════════════════
+       DELF TABS
+    ════════════════════════════════════ */
+    .delf-tabs { display: flex; gap: .4rem; flex-wrap: wrap; margin-bottom: 1.5rem; }
+    .delf-tab {
+      padding: .45rem 1.1rem;
+      border-radius: .5rem;
+      border: 1.5px solid var(--border);
+      font-size: .82rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all .15s;
+      background: var(--bg-white);
+      color: var(--text-muted);
+    }
+    .delf-tab.active, .delf-tab:hover {
+      background: var(--blue);
+      border-color: var(--blue);
+      color: #fff;
+    }
+    .delf-panel { display: none; }
+    .delf-panel.active { display: grid; }
+
+    /* ════════════════════════════════════
+       CARDS DE COMPETENCIA
+    ════════════════════════════════════ */
+    .comp-card {
+      background: var(--bg-white);
+      border: 1px solid var(--border);
+      border-radius: .875rem;
+      padding: 1.5rem;
+      transition: all .22s;
+      box-shadow: var(--shadow-sm);
+      position: relative;
+      overflow: hidden;
+    }
+    /* Línea de color superior al hacer hover */
+    .comp-card::after {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      opacity: 0;
+      transition: opacity .22s;
+      border-radius: .875rem .875rem 0 0;
+    }
+    .comp-card:hover { box-shadow: var(--shadow-md); transform: translateY(-2px); }
+    .comp-card:hover::after { opacity: 1; }
+    .card-co::after  { background: var(--blue); }
+    .card-ce::after  { background: var(--blue-mid); }
+    .card-pe::after  { background: var(--gold); }
+    .card-po::after  { background: var(--red); }
+
+    .comp-icon {
+      width: 2.4rem; height: 2.4rem;
+      border-radius: .5rem;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1rem;
+      margin-bottom: .85rem;
+    }
+    .score-pill {
+      padding: .2rem .7rem;
+      border-radius: 99px;
+      font-weight: 700;
+      font-size: .76rem;
+      flex-shrink: 0;
+      display: inline-block;
+    }
+    .prog-bg   { background: var(--bg-soft); border-radius: 99px; height: 3px; }
+    .prog-fill { height: 3px; border-radius: 99px; }
+
+    /* ════════════════════════════════════
+       TABLA EXAMEN
+    ════════════════════════════════════ */
+    .exam-table { width: 100%; border-collapse: collapse; font-size: .84rem; }
+    .exam-table th {
+      padding: .55rem .9rem;
+      text-align: left;
+      font-size: .68rem;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+      color: var(--text-muted);
+      border-bottom: 1px solid var(--border);
+      font-weight: 600;
+    }
+    .exam-table td { padding: .6rem .9rem; border-bottom: 1px solid var(--border); color: var(--text-body); }
+    .exam-table tr:last-child td { border-bottom: none; background: var(--bg-soft); font-weight: 600; }
+    .exam-table tbody tr:hover td { background: rgba(0,85,164,.03); }
+
+    /* ════════════════════════════════════
+       ACCORDION GRAMÁTICA
+    ════════════════════════════════════ */
+    .gram-section {
+      border: 1px solid var(--border);
+      border-radius: .875rem;
+      overflow: hidden;
+      margin-bottom: .75rem;
+      background: var(--bg-white);
+      box-shadow: var(--shadow-sm);
+      transition: box-shadow .2s, border-color .2s;
+    }
+    .gram-section.open {
+      border-color: var(--blue);
+      box-shadow: 0 0 0 3px rgba(0,85,164,.06), var(--shadow-sm);
+    }
+    .gram-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1rem 1.3rem;
+      cursor: pointer;
+      background: var(--bg-white);
+      transition: background .15s;
+      user-select: none;
+    }
+    .gram-header:hover { background: #FAFAF8; }
+    .gram-section.open .gram-header { background: var(--blue-light); }
+    .gram-header-left { display: flex; align-items: center; gap: .85rem; }
+    .gram-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--blue);
+      min-width: 1.4rem;
+    }
+    .gram-title { font-weight: 600; font-size: .93rem; color: var(--text-dark); }
+    .gram-count {
+      font-size: .7rem;
+      padding: .13rem .52rem;
+      border-radius: 99px;
+      background: var(--blue-light);
+      color: var(--blue);
+      border: 1px solid rgba(0,85,164,.15);
+      font-weight: 600;
+    }
+    .gram-section.open .gram-count { background: rgba(0,85,164,.12); }
+    .gram-arrow {
+      font-size: .65rem;
+      color: var(--text-light);
+      transition: transform .25s;
+    }
+    .gram-section.open .gram-arrow { transform: rotate(180deg); color: var(--blue); }
+    .gram-body {
+      display: none;
+      padding: 1.1rem 1.3rem 1.3rem;
+      background: var(--bg-soft);
+      border-top: 1px solid var(--border);
+    }
+    .gram-section.open .gram-body { display: block; }
+
+    /* Subtema pill */
+    .subtema {
+      display: inline-flex;
+      align-items: center;
+      padding: .28rem .72rem;
+      border-radius: 99px;
+      background: var(--bg-white);
+      border: 1px solid var(--border);
+      font-size: .78rem;
+      color: var(--text-body);
+      margin: .22rem;
+      cursor: pointer;
+      transition: all .13s;
+      box-shadow: var(--shadow-sm);
+    }
+    .subtema:hover { border-color: var(--blue); color: var(--blue); background: var(--blue-light); }
+    .subtema.sub-item {
+      background: transparent;
+      border-style: dashed;
+      border-color: var(--border-dark);
+      font-size: .74rem;
+      color: var(--text-muted);
+      box-shadow: none;
+    }
+    .subtema.sub-item:hover { color: var(--blue); border-color: var(--blue); background: var(--blue-light); border-style: solid; }
+
+    /* ════════════════════════════════════
+       BADGES
+    ════════════════════════════════════ */
+    .badge-b1 {
+      background: var(--blue-light);
+      color: var(--blue);
+      border: 1px solid rgba(0,85,164,.2);
+      padding: .25rem .8rem;
+      border-radius: 99px;
+      font-size: .72rem;
+      font-weight: 700;
+    }
+    .badge-soon {
+      background: var(--gold-light);
+      color: var(--gold);
+      border: 1px solid rgba(184,134,11,.2);
+      padding: .25rem .8rem;
+      border-radius: 99px;
+      font-size: .72rem;
+      font-weight: 600;
+    }
+
+    /* ════════════════════════════════════
+       SIDEBAR
+    ════════════════════════════════════ */
+    .sidebar { position: sticky; top: 5rem; }
+    .sidebar-link {
+      display: block;
+      padding: .4rem .75rem;
+      font-size: .82rem;
+      color: var(--text-muted);
+      border-left: 2px solid var(--border);
+      text-decoration: none;
+      transition: all .13s;
+    }
+    .sidebar-link:hover { color: var(--blue); border-color: var(--blue); background: var(--blue-light); }
+    .sidebar-link.active { color: var(--blue); border-color: var(--blue); font-weight: 600; }
+
+    /* ════════════════════════════════════
+       INFO BOX
+    ════════════════════════════════════ */
+    .info-box {
+      padding: 1rem 1.25rem;
+      border-radius: .75rem;
+      border-left: 3px solid var(--blue);
+      background: var(--blue-light);
+      font-size: .85rem;
+      color: var(--text-body);
+    }
+
+    .sec-divider { border: none; border-top: 1px solid var(--border); margin: 0; }
+  </style>
+</head>
+<body>
+
+<!-- ══ BARRA TRICOLOR SUPERIOR ══ -->
+<div class="tricolor-bar"></div>
+
+<!-- ══ NAVBAR ══ -->
+<header class="navbar sticky top-0 z-50">
+  <div class="max-w-6xl mx-auto px-5 py-3.5 flex items-center justify-between">
+    <a href="index.html" class="font-display font-bold text-lg" style="color:var(--text-dark);text-decoration:none">
+      Aprende
+      <span style="
+        background: linear-gradient(100deg, #0055A4 0%, #6A9FD4 40%, #C0392B 100%);
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+      "> Francés </span>
+      Viajando
+    </a>
+    <nav class="hidden md:flex gap-6 text-sm" style="color:var(--text-muted)">
+      <a href="index.html"      class="hover:text-blue-700 transition-colors">Inicio</a>
+      <a href="cursos.html"     class="hover:text-blue-700 transition-colors">Cursos</a>
+      <a href="ejercicios.html" class="hover:text-blue-700 transition-colors">Ejercicios (IA)</a>
+      <a href="#"               style="color:var(--blue);font-weight:600">DELF &amp; Grammaire</a>
+      <a href="recursos.html"   class="hover:text-blue-700 transition-colors">Recursos</a>
+      <a href="contacto.html"   class="hover:text-blue-700 transition-colors">Contacto</a>
+    </nav>
+    <button id="menuBtn" class="md:hidden p-2 rounded-lg" style="border:1px solid var(--border)">☰</button>
+  </div>
+  <div id="mobileMenu" class="hidden md:hidden px-5 pb-4 space-y-1 text-sm" style="border-top:1px solid var(--border)">
+    <a href="index.html"      class="block py-1.5 font-display font-bold" style="color:var(--text-dark)">Aprende <span style="background:linear-gradient(100deg,#0055A4 0%,#6A9FD4 40%,#C0392B 100%);-webkit-background-clip:text;background-clip:text;color:transparent"> Francés </span> Viajando</a>
+    <a href="index.html"      class="block py-1.5" style="color:var(--text-muted)">Inicio</a>
+    <a href="cursos.html"     class="block py-1.5" style="color:var(--text-muted)">Cursos</a>
+    <a href="ejercicios.html" class="block py-1.5" style="color:var(--text-muted)">Ejercicios (IA)</a>
+    <a href="#"               class="block py-1.5 font-semibold" style="color:var(--blue)">DELF &amp; Grammaire</a>
+    <a href="recursos.html"   class="block py-1.5" style="color:var(--text-muted)">Recursos</a>
+    <a href="contacto.html"   class="block py-1.5" style="color:var(--text-muted)">Contacto</a>
+  </div>
+</header>
+
+<!-- ══ HERO ══ -->
+<section class="hero-bg px-5 py-22 text-center" style="padding-top:5.5rem;padding-bottom:5.5rem;border-bottom:1px solid var(--border)">
+
+  <span class="eyebrow">Préparation officielle · CECRL</span>
+
+  <!-- Título: solo DELF con gradiente dinámico tricolor -->
+  <h1 class="font-display font-black mb-5 leading-tight" style="font-size:clamp(2.8rem,7vw,5.5rem)">
+    <span class="tricolor-title">DELF</span>
+    <span style="color:var(--text-dark)"> &amp; Grammaire</span>
+  </h1>
+
+  <!-- Línea decorativa tricolor -->
+  <div class="tricolor-line mb-6">
+    <span style="background:#0055A4"></span>
+    <span style="background:#C8C0B8"></span>
+    <span style="background:#C0392B"></span>
+  </div>
+
+  <p class="max-w-lg mx-auto text-base mb-7" style="color:var(--text-muted)">
+    Prepárate para el examen oficial DELF y domina la gramática francesa con contenido estructurado por niveles del CECRL.
+  </p>
+
+  <div class="flex justify-center gap-2 mb-9 flex-wrap">
+    <span class="badge-b1">DELF B1</span>
+    <span class="badge-soon">B2 próximamente</span>
+  </div>
+
+  <div class="flex justify-center gap-3 flex-wrap">
+    <a href="#delf"      class="btn-primary">📋 Ver DELF B1</a>
+    <a href="#grammaire" class="btn-outline">📖 Ir a Gramática →</a>
+  </div>
+
+  <!-- Stats -->
+  <div class="flex justify-center gap-12 mt-14 flex-wrap">
+    <div class="text-center">
+      <div class="stat-num">4</div>
+      <div class="stat-label">Competencias DELF</div>
+    </div>
+    <div class="text-center" style="border-left:1px solid var(--border);padding-left:3rem">
+      <div class="stat-num">5</div>
+      <div class="stat-label">Módulos gramática</div>
+    </div>
+    <div class="text-center" style="border-left:1px solid var(--border);padding-left:3rem">
+      <div class="stat-num">60+</div>
+      <div class="stat-label">Subtemas cubiertos</div>
+    </div>
+  </div>
+</section>
+
+<hr class="sec-divider">
+
+<!-- ══ MAIN CONTENT ══ -->
+<div class="max-w-6xl mx-auto px-5 py-12 flex gap-10">
+
+  <!-- SIDEBAR -->
+  <aside class="hidden lg:block w-48 shrink-0">
+    <div class="sidebar">
+      <div style="font-size:.67rem;font-weight:700;text-transform:uppercase;letter-spacing:.12em;color:var(--text-light);margin-bottom:.75rem">En esta página</div>
+      <nav class="space-y-0.5">
+        <a href="#delf"        class="sidebar-link active">DELF B1</a>
+        <a href="#estructura"  class="sidebar-link" style="font-size:.75rem;padding-left:1.3rem">↳ Estructura</a>
+        <a href="#consejos"    class="sidebar-link" style="font-size:.75rem;padding-left:1.3rem">↳ Consejos</a>
+        <div style="padding:.65rem .75rem .2rem;font-size:.67rem;font-weight:700;text-transform:uppercase;letter-spacing:.12em;color:var(--text-light)">Gramática</div>
+        <a href="#grammaire"   class="sidebar-link">Módulos</a>
+        <a href="#mod1"        class="sidebar-link" style="font-size:.75rem;padding-left:1.3rem">1. Modes et temps</a>
+        <a href="#mod2"        class="sidebar-link" style="font-size:.75rem;padding-left:1.3rem">2. Discours rapporté</a>
+        <a href="#mod3"        class="sidebar-link" style="font-size:.75rem;padding-left:1.3rem">3. Pronoms</a>
+        <a href="#mod4"        class="sidebar-link" style="font-size:.75rem;padding-left:1.3rem">4. Articulations</a>
+        <a href="#mod5"        class="sidebar-link" style="font-size:.75rem;padding-left:1.3rem">5. Repérage</a>
+      </nav>
+    </div>
+  </aside>
+
+  <!-- MAIN -->
+  <main class="flex-1 min-w-0">
+
+    <!-- ══ DELF ══ -->
+    <section id="delf" class="mb-14">
+      <span class="eyebrow">Examen oficial</span>
+      <h2 class="font-display text-4xl font-bold mb-2" style="color:var(--text-dark)">DELF B1</h2>
+      <p class="mb-7 text-sm" style="color:var(--text-muted);max-width:540px">
+        Certifica que puedes desenvolverte en situaciones cotidianas, expresar tu opinión y comprender textos de media complejidad en francés.
+      </p>
+
+      <div class="delf-tabs">
+        <button class="delf-tab active" data-panel="b1">DELF B1</button>
+        <button class="delf-tab" data-panel="b2">DELF B2 <span style="font-size:.63rem;opacity:.5">próximo</span></button>
+      </div>
+
+      <!-- Panel B1 -->
+      <div id="panel-b1" class="delf-panel active gap-4 grid md:grid-cols-2">
+
+        <div class="comp-card card-co">
+          <div class="comp-icon" style="background:var(--blue-light)">🎧</div>
+          <div class="flex items-start justify-between mb-2 gap-2">
+            <div>
+              <span class="eyebrow" style="font-size:.62rem">Épreuve 1</span>
+              <h3 class="font-semibold text-sm" style="color:var(--text-dark)">Compréhension de l'oral</h3>
+            </div>
+            <span class="score-pill" style="background:var(--blue-light);color:var(--blue)">25 pts</span>
+          </div>
+          <p class="text-xs mb-3" style="color:var(--text-muted)">3 documentos sonoros de complejidad creciente: anuncios, diálogos, entrevistas.</p>
+          <div class="prog-bg mb-1"><div class="prog-fill" style="width:25%;background:var(--blue)"></div></div>
+          <div class="text-xs mb-3" style="color:var(--text-light)">~25 min · mínimo 5/25</div>
+          <div class="flex flex-wrap">
+            <span class="subtema">Vrai / Faux</span>
+            <span class="subtema">QCM</span>
+            <span class="subtema">Prise de notes</span>
+            <span class="subtema">Questions ouvertes</span>
+          </div>
+        </div>
+
+        <div class="comp-card card-ce">
+          <div class="comp-icon" style="background:#EFF6FF">📄</div>
+          <div class="flex items-start justify-between mb-2 gap-2">
+            <div>
+              <span class="eyebrow" style="font-size:.62rem;color:var(--blue-mid)">Épreuve 2</span>
+              <h3 class="font-semibold text-sm" style="color:var(--text-dark)">Compréhension des écrits</h3>
+            </div>
+            <span class="score-pill" style="background:#EFF6FF;color:var(--blue-mid)">25 pts</span>
+          </div>
+          <p class="text-xs mb-3" style="color:var(--text-muted)">Documentos de la vida cotidiana y un texto más largo sobre un tema general.</p>
+          <div class="prog-bg mb-1"><div class="prog-fill" style="width:25%;background:var(--blue-mid)"></div></div>
+          <div class="text-xs mb-3" style="color:var(--text-light)">45 min · mínimo 5/25</div>
+          <div class="flex flex-wrap">
+            <span class="subtema">Document pratique</span>
+            <span class="subtema">Lire pour s'informer</span>
+            <span class="subtema">QCM &amp; réponses courtes</span>
+          </div>
+        </div>
+
+        <div class="comp-card card-pe">
+          <div class="comp-icon" style="background:var(--gold-light)">✍️</div>
+          <div class="flex items-start justify-between mb-2 gap-2">
+            <div>
+              <span class="eyebrow" style="font-size:.62rem;color:var(--gold)">Épreuve 3</span>
+              <h3 class="font-semibold text-sm" style="color:var(--text-dark)">Production écrite</h3>
+            </div>
+            <span class="score-pill" style="background:var(--gold-light);color:var(--gold)">25 pts</span>
+          </div>
+          <p class="text-xs mb-3" style="color:var(--text-muted)">Texto de 160–180 palabras: carta formal, artículo de opinión o descripción de experiencia.</p>
+          <div class="prog-bg mb-1"><div class="prog-fill" style="width:25%;background:var(--gold)"></div></div>
+          <div class="text-xs mb-3" style="color:var(--text-light)">45 min · mínimo 5/25</div>
+          <div class="flex flex-wrap">
+            <span class="subtema">Lettre formelle</span>
+            <span class="subtema">Article / forum</span>
+            <span class="subtema">Description d'événement</span>
+          </div>
+        </div>
+
+        <div class="comp-card card-po">
+          <div class="comp-icon" style="background:var(--red-light)">🎤</div>
+          <div class="flex items-start justify-between mb-2 gap-2">
+            <div>
+              <span class="eyebrow" style="font-size:.62rem;color:var(--red)">Épreuve 4</span>
+              <h3 class="font-semibold text-sm" style="color:var(--text-dark)">Production orale</h3>
+            </div>
+            <span class="score-pill" style="background:var(--red-light);color:var(--red)">25 pts</span>
+          </div>
+          <p class="text-xs mb-3" style="color:var(--text-muted)">3 ejercicios: monólogo seguido, ejercicio dialogal y punto de vista sobre un documento.</p>
+          <div class="prog-bg mb-1"><div class="prog-fill" style="width:25%;background:var(--red)"></div></div>
+          <div class="text-xs mb-3" style="color:var(--text-light)">~15 min · mínimo 5/25</div>
+          <div class="flex flex-wrap">
+            <span class="subtema">Monologue suivi</span>
+            <span class="subtema">Exercice dialogal</span>
+            <span class="subtema">Point de vue</span>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Panel B2 -->
+      <div id="panel-b2" style="display:none">
+        <div class="comp-card text-center py-12">
+          <div class="font-display text-3xl font-bold mb-3" style="color:var(--text-dark)">DELF B2</div>
+          <p style="color:var(--text-muted)">Contenido en preparación. Próximamente disponible.</p>
+          <div class="mt-5"><a href="contacto.html" class="btn-outline text-sm">Notificarme →</a></div>
+        </div>
+      </div>
+
+      <!-- Tabla -->
+      <div id="estructura" class="mt-8 rounded-xl overflow-hidden" style="border:1px solid var(--border);box-shadow:var(--shadow-sm)">
+        <div style="background:var(--bg-soft);padding:.85rem 1.3rem;border-bottom:1px solid var(--border)">
+          <span class="eyebrow" style="margin:0">Estructura del examen</span>
+          <div class="font-semibold text-sm mt-0.5" style="color:var(--text-dark)">Resumen DELF B1</div>
+        </div>
+        <div style="background:var(--bg-white);overflow-x:auto">
+          <table class="exam-table">
+            <thead>
+              <tr><th>Épreuve</th><th>Contenido</th><th>Duración</th><th>Puntos</th><th>Mínimo</th></tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><span style="color:var(--blue);font-weight:600">🎧 CO</span></td>
+                <td style="color:var(--text-muted)">3 documentos sonoros</td>
+                <td>~25 min</td><td>/25</td>
+                <td><span style="color:var(--red);font-weight:600">5/25</span></td>
+              </tr>
+              <tr>
+                <td><span style="color:var(--blue-mid);font-weight:600">📄 CE</span></td>
+                <td style="color:var(--text-muted)">2 textos escritos</td>
+                <td>45 min</td><td>/25</td>
+                <td><span style="color:var(--red);font-weight:600">5/25</span></td>
+              </tr>
+              <tr>
+                <td><span style="color:var(--gold);font-weight:600">✍️ PE</span></td>
+                <td style="color:var(--text-muted)">Producción escrita 160–180 palabras</td>
+                <td>45 min</td><td>/25</td>
+                <td><span style="color:var(--red);font-weight:600">5/25</span></td>
+              </tr>
+              <tr>
+                <td><span style="color:var(--red);font-weight:600">🎤 PO</span></td>
+                <td style="color:var(--text-muted)">3 actividades orales</td>
+                <td>~15 min</td><td>/25</td>
+                <td><span style="color:var(--red);font-weight:600">5/25</span></td>
+              </tr>
+              <tr>
+                <td colspan="2"><strong>TOTAL</strong></td>
+                <td>~2h10</td>
+                <td><strong style="color:var(--blue)">/100</strong></td>
+                <td><strong style="color:var(--red)">50/100</strong></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div id="consejos" class="info-box mt-5">
+        <strong style="color:var(--blue)">💡 Rappel :</strong> Se necesita un mínimo de <strong>5 puntos por épreuve</strong> y <strong>50 puntos en total</strong>. Ninguna prueba puede compensar a otra si está por debajo del mínimo.
+      </div>
+    </section>
+
+    <hr class="sec-divider mb-14">
+
+    <!-- ══ GRAMÁTICA ══ -->
+    <section id="grammaire">
+      <span class="eyebrow">Référence complète</span>
+      <h2 class="font-display text-4xl font-bold mb-2" style="color:var(--text-dark)">Grammaire française</h2>
+      <p class="mb-7 text-sm" style="color:var(--text-muted);max-width:540px">
+        5 módulos temáticos organizados según el programa del CECRL. Haz clic en cada módulo para explorar los subtemas.
+      </p>
+
+      <div id="mod1" class="gram-section open">
+        <div class="gram-header" onclick="toggleGram(this)">
+          <div class="gram-header-left"><span class="gram-num">1</span><span class="gram-title">Les modes et les temps</span><span class="gram-count">12 thèmes</span></div>
+          <span class="gram-arrow">▼</span>
+        </div>
+        <div class="gram-body">
+          <div class="flex flex-wrap">
+            <span class="subtema">Le passé composé</span><span class="subtema">L'imparfait</span><span class="subtema">Le plus-que-parfait</span><span class="subtema">Le futur</span><span class="subtema">Le futur antérieur</span><span class="subtema">Le subjonctif</span><span class="subtema sub-item">↳ Le subjonctif passé</span><span class="subtema">Le conditionnel</span><span class="subtema sub-item">↳ Le conditionnel passé</span><span class="subtema">L'impératif</span><span class="subtema">Le participe présent</span><span class="subtema">Le gérondif</span><span class="subtema">Le passif</span>
+          </div>
+          <p class="text-xs mt-3" style="color:var(--text-muted)">Clave para el DELF B1: dominar passé composé vs. imparfait, subjonctif y conditionnel.</p>
+        </div>
+      </div>
+
+      <div id="mod2" class="gram-section">
+        <div class="gram-header" onclick="toggleGram(this)">
+          <div class="gram-header-left"><span class="gram-num">2</span><span class="gram-title">Le discours rapporté</span><span class="gram-count">11 thèmes</span></div>
+          <span class="gram-arrow">▼</span>
+        </div>
+        <div class="gram-body">
+          <div class="flex flex-wrap">
+            <span class="subtema">Présentation générale</span><span class="subtema">Le discours rapporté au présent</span><span class="subtema">Le discours rapporté au passé</span><span class="subtema">Transformation des temps</span><span class="subtema">Transformation des expressions de temps</span><span class="subtema">Les indicateurs temporels</span><span class="subtema">Le discours rapporté interrogatif</span><span class="subtema">Questions au discours rapporté</span><span class="subtema">Les verbes introducteurs</span><span class="subtema">Introduire des faits et des exemples</span><span class="subtema">Se situer dans le temps</span>
+          </div>
+          <p class="text-xs mt-3" style="color:var(--text-muted)">Fundamental para la production écrite y la production orale del DELF B1.</p>
+        </div>
+      </div>
+
+      <div id="mod3" class="gram-section">
+        <div class="gram-header" onclick="toggleGram(this)">
+          <div class="gram-header-left"><span class="gram-num">3</span><span class="gram-title">Les pronoms et déterminants</span><span class="gram-count">15 thèmes</span></div>
+          <span class="gram-arrow">▼</span>
+        </div>
+        <div class="gram-body">
+          <div class="flex flex-wrap">
+            <span class="subtema">Les déterminants et les pronoms</span><span class="subtema">Les articles</span><span class="subtema">Les adjectifs possessifs</span><span class="subtema">Les pronoms possessifs</span><span class="subtema">Les déterminants démonstratifs</span><span class="subtema">Les pronoms démonstratifs</span><span class="subtema">Les indéfinis</span><span class="subtema sub-item">↳ Les déterminants indéfinis</span><span class="subtema sub-item">↳ Les pronoms indéfinis</span><span class="subtema">Le pronom ce</span><span class="subtema">Les pronoms toniques</span><span class="subtema">Les pronoms relatifs simples</span><span class="subtema">Les pronoms relatifs composés</span><span class="subtema">Le pronom en</span><span class="subtema">Le pronom y</span><span class="subtema">Les doubles pronoms COD et COI</span><span class="subtema sub-item">↳ La place des pronoms</span><span class="subtema sub-item">↳ La combinaison des pronoms</span>
+          </div>
+          <p class="text-xs mt-3" style="color:var(--text-muted)">Los pronoms relatifs y los doubles pronoms son los más evaluados en compréhension écrite.</p>
+        </div>
+      </div>
+
+      <div id="mod4" class="gram-section">
+        <div class="gram-header" onclick="toggleGram(this)">
+          <div class="gram-header-left"><span class="gram-num">4</span><span class="gram-title">Articulations logiques et expression</span><span class="gram-count">25 thèmes</span></div>
+          <span class="gram-arrow">▼</span>
+        </div>
+        <div class="gram-body">
+          <div class="flex flex-wrap">
+            <span class="subtema">Articulations logiques simples</span><span class="subtema">La concordance des temps</span><span class="subtema sub-item">↳ Subordonnées de cause</span><span class="subtema sub-item">↳ Subordonnées de but</span><span class="subtema sub-item">↳ Subordonnées de temps</span><span class="subtema">L'expression de l'hypothèse</span><span class="subtema">Exprimer la simultanéité</span><span class="subtema">Exprimer l'inclusion et l'exclusion</span><span class="subtema">Exprimer la restriction</span><span class="subtema">Exprimer la cause</span><span class="subtema">Exprimer la conséquence</span><span class="subtema">Exprimer le but</span><span class="subtema">Exprimer l'opposition et la concession</span><span class="subtema sub-item">↳ Exprimer la concession</span><span class="subtema">Exprimer la condition</span><span class="subtema">Exprimer le doute</span><span class="subtema">Exprimer la certitude</span><span class="subtema">Exprimer une opinion</span><span class="subtema">Exprimer les sentiments et les émotions</span><span class="subtema sub-item">↳ Exprimer les émotions</span><span class="subtema sub-item">↳ Exprimer l'inutilité et la peur</span><span class="subtema">Il faut / Il ne faut pas</span><span class="subtema">La mise en relief</span><span class="subtema">Les marqueurs du discours</span><span class="subtema">Exprimer la continuité</span><span class="subtema">Exprimer la progression</span><span class="subtema">Présenter des données chiffrées</span>
+          </div>
+          <p class="text-xs mt-3" style="color:var(--text-muted)">El módulo más extenso y directamente relacionado con la production écrite del DELF.</p>
+        </div>
+      </div>
+
+      <div id="mod5" class="gram-section">
+        <div class="gram-header" onclick="toggleGram(this)">
+          <div class="gram-header-left"><span class="gram-num">5</span><span class="gram-title">Repérage et lexique grammatical</span><span class="gram-count">7 thèmes</span></div>
+          <span class="gram-arrow">▼</span>
+        </div>
+        <div class="gram-body">
+          <div class="flex flex-wrap">
+            <span class="subtema">La localisation temporelle</span><span class="subtema">La localisation spatiale</span><span class="subtema">Les prépositions</span><span class="subtema">Les adverbes</span><span class="subtema sub-item">↳ Les adverbes en -ment</span><span class="subtema sub-item">↳ Les adverbes encore et toujours</span><span class="subtema">La comparaison</span><span class="subtema sub-item">↳ Le superlatif</span><span class="subtema">La négation « sans » + infinitif</span>
+          </div>
+          <p class="text-xs mt-3" style="color:var(--text-muted)">Herramientas de localización y comparación esenciales para descripciones y textos argumentativos.</p>
+        </div>
+      </div>
+
+      <!-- Nota IA -->
+      <div class="mt-8 p-5 rounded-xl flex gap-4 items-start" style="background:var(--blue-light);border:1px solid rgba(0,85,164,.15)">
+        <div style="font-size:1.3rem;flex-shrink:0">🤖</div>
+        <div>
+          <div class="text-sm font-semibold mb-1" style="color:var(--blue)">Ejercicios generados por IA</div>
+          <p class="text-sm" style="color:var(--text-muted)">Próximamente cada subtema tendrá ejercicios prácticos generados en tiempo real, adaptados a tu nivel y estilo de aprendizaje.</p>
+        </div>
+      </div>
+    </section>
+
+  </main>
+</div>
+
+<!-- ══ FOOTER ══ -->
+<footer style="border-top:1px solid var(--border);background:var(--bg-soft)">
+  <div class="tricolor-bar"></div>
+  <div class="max-w-6xl mx-auto px-5 py-7 flex flex-col md:flex-row items-center justify-between gap-4">
+    <div class="font-display font-bold" style="color:var(--text-dark)">
+      Aprende <span style="color:var(--blue)">Francés</span> Viajando
+    </div>
+    <div class="flex gap-5">
+      <a href="https://www.youtube.com/@Aprende.Frances.Viajando" target="_blank" rel="noopener"
+         style="color:var(--text-muted);transition:color .2s"
+         onmouseover="this.style.color='#dc2626'" onmouseout="this.style.color='var(--text-muted)'">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" fill="currentColor" style="width:1.2rem;height:1.2rem">
+          <path d="M549.65 124.08c-6.28-23.65-24.76-42.16-48.39-48.45C458.8 64 288 64 288 64s-170.8 0-213.26 11.63c-23.63 6.29-42.11 24.8-48.39 48.45C16 166.53 16 256.03 16 256.03s0 89.51 10.35 131.96c6.28 23.65 24.76 42.16 48.39 48.45C117.2 448 288 448 288 448s170.8 0 213.26-11.63c23.63-6.29 42.11-24.8 48.39-48.45C560 345.54 560 256.03 560 256.03s0-89.5-10.35-131.95zM232 338.55V173.51l142.74 82.52L232 338.55z"/>
+        </svg>
+      </a>
+      <a href="https://www.tiktok.com/@AldoJara" target="_blank" rel="noopener"
+         style="color:var(--text-muted);transition:color .2s"
+         onmouseover="this.style.color='var(--blue)'" onmouseout="this.style.color='var(--text-muted)'">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" fill="currentColor" style="width:1.2rem;height:1.2rem">
+          <path d="M448,209.9v102c-45.4,0-87.3-14.7-121.1-39.4V357c0,85.1-68.9,155-153.9,155S19,442.1,19,357S87.9,202,173,202h0.1v102c-23.2,0-44.2,9.4-59.6,24.6c-15.3,15.2-24.7,36.2-24.7,59.4c0,46.4,37.8,84.2,84.3,84.2c46.4,0,84.3-37.8,84.3-84.2V0h95.7c8.5,47.8,49.5,84.8,98.9,84.8V209.9z"/>
+        </svg>
+      </a>
+    </div>
+    <div class="text-xs" style="color:var(--text-light)">© 2026 Aldo Jara — Aprende Francés Viajando</div>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('menuBtn')?.addEventListener('click', () => {
+    document.getElementById('mobileMenu').classList.toggle('hidden');
+  });
+  document.querySelectorAll('.delf-tab').forEach(tab => {
+    tab.addEventListener('click', () => {
+      document.querySelectorAll('.delf-tab').forEach(t => t.classList.remove('active'));
+      document.querySelectorAll('.delf-panel').forEach(p => { p.classList.remove('active'); p.style.display = 'none'; });
+      tab.classList.add('active');
+      const panel = document.getElementById('panel-' + tab.dataset.panel);
+      if (panel) { panel.classList.add('active'); panel.style.display = 'grid'; }
+    });
+  });
+  function toggleGram(header) { header.parentElement.classList.toggle('open'); }
+</script>
+</body>
+</html>
