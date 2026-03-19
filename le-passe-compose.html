@@ -316,6 +316,104 @@
       margin-bottom: .2rem;
       color: var(--text-dark);
     }
+    .master-card {
+      background: var(--bg-white);
+      border: 1px solid var(--border);
+      border-radius: 1rem;
+      padding: 1.4rem 1.5rem;
+      box-shadow: var(--shadow-sm);
+      margin-bottom: 1.1rem;
+    }
+    .master-title {
+      display: flex;
+      align-items: center;
+      gap: .7rem;
+      margin: 0 0 1rem;
+      padding-bottom: .75rem;
+      border-bottom: 2px solid var(--blue-light);
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 1.65rem;
+      line-height: 1.2;
+      color: var(--text-dark);
+    }
+    .master-title .emoji {
+      font-size: 1.8rem;
+      line-height: 1;
+      flex-shrink: 0;
+    }
+    .master-subtitle {
+      margin: 1.15rem 0 .65rem;
+      font-size: 1.12rem;
+      font-weight: 700;
+      color: var(--blue);
+    }
+    .master-example {
+      background: linear-gradient(180deg, #ffffff, #f7f9fc);
+      border: 1px solid rgba(0,85,164,.12);
+      border-left: 4px solid var(--blue-mid);
+      padding: .8rem 1rem;
+      margin: .8rem 0 1rem;
+      border-radius: .7rem;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+      font-size: .92rem;
+      color: var(--text-body);
+    }
+    .master-example p {
+      margin: .2rem 0;
+    }
+    .master-key {
+      background: var(--blue-light);
+      border: 1px solid rgba(0,85,164,.16);
+      border-radius: .8rem;
+      padding: .95rem 1rem;
+      margin: 1rem 0;
+      color: var(--text-body);
+    }
+    .master-key.warm {
+      background: var(--gold-light);
+      border-color: rgba(184,134,11,.22);
+    }
+    .master-table-wrap {
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      margin: .9rem 0 1.1rem;
+    }
+    .master-table {
+      width: 100%;
+      border-collapse: collapse;
+      background: var(--bg-white);
+      font-size: .95rem;
+    }
+    .master-table th,
+    .master-table td {
+      border: 1px solid var(--border);
+      padding: .72rem .9rem;
+      text-align: left;
+      vertical-align: top;
+    }
+    .master-table th {
+      background: var(--bg-soft);
+      color: var(--text-body);
+      font-weight: 700;
+    }
+    .master-list li {
+      margin-bottom: .9rem;
+    }
+    .master-summary {
+      background: linear-gradient(135deg, #0f3f74, #1c5ca0);
+      border-color: rgba(0,85,164,.2);
+      box-shadow: var(--shadow-md);
+      color: #fff;
+    }
+    .master-summary .master-title {
+      color: #fff;
+      border-color: rgba(255,255,255,.18);
+    }
+    .master-summary p,
+    .master-summary li,
+    .master-summary strong {
+      color: #fff;
+    }
     .resource-grid {
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -495,121 +593,328 @@
     <section id="maitriser" class="mb-12">
       <span class="eyebrow">Bloc principal</span>
       <h2 class="font-display text-4xl font-bold mb-2" style="color:var(--text-dark)">Maîtriser le thème</h2>
-      <p class="mb-6 text-sm" style="color:var(--text-muted);max-width:680px">
-        Este bloque reúne lo esencial para estudiar el subtema sin dividir demasiado la experiencia:
-        explicación, estructura, ejemplos y práctica.
+      <p class="mb-6 text-sm" style="color:var(--text-muted);max-width:760px">
+        Aquí el bloque principal absorbe el contenido completo del material adjunto, pero remaquetado para integrarse con la página.
+        Se conservan los emojis, la lógica didáctica y las tablas, solo cambia la presentación visual.
       </p>
 
-      <div class="section-card mb-5">
-        <div class="grid md:grid-cols-[1.15fr_.85fr] gap-5">
-          <div>
-            <div class="text-xs font-bold uppercase tracking-widest mb-2" style="color:var(--blue)">Résumé rapide</div>
-            <h3 class="text-lg font-semibold mb-3" style="color:var(--text-dark)">Comment fonctionne le passé composé</h3>
-            <p class="text-sm mb-4" style="color:var(--text-muted)">
-              Le passé composé se forme avec <strong>avoir</strong> ou <strong>être</strong> au présent
-              + le participe passé. On l'utilise pour des actions terminées, des événements ponctuels
-              et des faits principaux qui font avancer un récit.
-            </p>
+      <article class="master-card">
+        <h3 class="master-title"><span class="emoji">🏛</span>Introducción: La Precisión del Pasado</h3>
+        <p>
+          El <strong>passé composé</strong> es un pilar esencial en la comunicación profesional francesa. Dominarlo implica comprender su
+          <strong>valor narrativo y temporal</strong>, su diferencia con otros tiempos del pasado y las reglas sutiles de concordancia y significado.
+        </p>
+      </article>
 
-            <div class="formula-grid">
-              <div class="formula-box">
-                <strong>1. Sujet</strong>
-                Je, tu, il, nous...
-              </div>
-              <div class="formula-box">
-                <strong>2. Auxiliaire</strong>
-                avoir / être au présent
-              </div>
-              <div class="formula-box">
-                <strong>3. Participe passé</strong>
-                mangé, fini, arrivé...
-              </div>
+      <article class="master-card">
+        <h3 class="master-title"><span class="emoji">🕰</span>1. La Función Comunicativa</h3>
+        <p>
+          Marca una <strong>acción pasada y completada</strong>. En el francés actual, sustituye en gran medida al <em>passé simple</em>
+          y es el tiempo narrativo por excelencia en la lengua hablada.
+        </p>
+
+        <h4 class="master-subtitle">📌 Usos Fundamentales</h4>
+        <ol class="master-list" style="padding-left:1.1rem">
+          <li>
+            <strong>Acción terminada en el pasado</strong>
+            <div class="master-example">
+              <p>- Hier, j’ai terminé le rapport. <em>(Ayer terminé el informe.)</em></p>
+              <p>- Nous avons signé le contrat la semaine dernière.</p>
             </div>
-          </div>
+          </li>
+          <li>
+            <strong>Acción puntual y precisa</strong>
+            <div class="master-example">
+              <p>- La réunion a commencé à dix heures.</p>
+              <p>- Elle a appelé son client à midi.</p>
+            </div>
+          </li>
+          <li>
+            <strong>Acción reciente con vínculo al presente</strong>
+            <div class="master-example">
+              <p>- J’ai perdu mes clés. <em>(He perdido mis llaves.)</em></p>
+            </div>
+          </li>
+          <li>
+            <strong>Sucesión de acciones</strong>
+            <div class="master-example">
+              <p>- Ce matin, je suis arrivé, j’ai allumé l’ordinateur et j’ai vérifié mes e-mails.</p>
+            </div>
+          </li>
+        </ol>
+      </article>
 
-          <div class="mini-card">
-            <div class="text-xs font-bold uppercase tracking-widest mb-2" style="color:var(--gold)">Points clés</div>
-            <ul class="text-sm" style="color:var(--text-muted);padding-left:1rem">
-              <li>Acción terminada.</li>
-              <li>Événement ponctuel dans le passé.</li>
-              <li>Succession de hechos.</li>
-              <li>Con <strong>être</strong>, el participio puede concordar.</li>
-              <li>Se contrasta mucho con <strong>l'imparfait</strong> en B1.</li>
-            </ul>
-          </div>
+      <article class="master-card">
+        <h3 class="master-title"><span class="emoji">⚙️</span>2. Estructura del Passé Composé</h3>
+        <div class="master-key warm">
+          <strong>Formula:</strong> Auxiliar (<em>avoir</em> o <em>être</em>) en presente + participio pasado
         </div>
+
+        <h4 class="master-subtitle">🔸 2.1 El auxiliar <em>Avoir</em> (caso general)</h4>
+        <p>La gran mayoría de los verbos se conjugan con <strong>avoir</strong>.</p>
+        <div class="master-table-wrap">
+          <table class="master-table">
+            <thead>
+              <tr><th>Sujeto</th><th>Ejemplo con "manger"</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>j’</td><td>ai mangé</td></tr>
+              <tr><td>tu</td><td>as mangé</td></tr>
+              <tr><td>il / elle / on</td><td>a mangé</td></tr>
+              <tr><td>nous</td><td>avons mangé</td></tr>
+              <tr><td>vous</td><td>avez mangé</td></tr>
+              <tr><td>ils / elles</td><td>ont mangé</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h4 class="master-subtitle">🔹 2.2 El auxiliar <em>Être</em> (casos particulares)</h4>
+        <p>Se usa con verbos de movimiento, cambio de estado y todos los verbos pronominales.</p>
+        <div class="master-key">
+          <strong>DR MRS VANDERTRAMP:</strong> Devenir, Revenir, Monter, Rester, Sortir, Venir, Arriver, Naître,
+          Descendre, Entrer, Rentrer, Tomber, Retourner, Aller, Mourir, Partir, Passer.
+        </div>
+        <div class="master-table-wrap">
+          <table class="master-table">
+            <thead>
+              <tr><th>Sujeto</th><th>Ejemplo con “aller”</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>je</td><td>suis allé(e)</td></tr>
+              <tr><td>tu</td><td>es allé(e)</td></tr>
+              <tr><td>il / elle</td><td>est allé / allée</td></tr>
+              <tr><td>nous</td><td>sommes allé(e)s</td></tr>
+              <tr><td>vous</td><td>êtes allé(e)(s)</td></tr>
+              <tr><td>ils / elles</td><td>sont allés / allées</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h4 class="master-subtitle">🪞 Verbos pronominales</h4>
+        <p>Todos los verbos que empiezan con <em>se</em> usan <em>être</em>.</p>
+        <div class="master-table-wrap">
+          <table class="master-table">
+            <thead>
+              <tr><th>Sujeto</th><th>Ejemplo con “se lever”</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>je</td><td>me suis levé(e)</td></tr>
+              <tr><td>tu</td><td>t’es levé(e)</td></tr>
+              <tr><td>il / elle</td><td>s’est levé / levée</td></tr>
+              <tr><td>nous</td><td>nous sommes levé(e)s</td></tr>
+              <tr><td>vous</td><td>vous êtes levé(e)(s)</td></tr>
+              <tr><td>ils / elles</td><td>se sont levés / levées</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </article>
+
+      <article class="master-card">
+        <h3 class="master-title"><span class="emoji">🧩</span>3. El Participio Pasado</h3>
+
+        <h4 class="master-subtitle">Verbos regulares</h4>
+        <div class="master-table-wrap">
+          <table class="master-table">
+            <thead>
+              <tr><th>Terminación</th><th>Regla</th><th>Ejemplo</th><th>Participio</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>-er</td><td>→ -é</td><td>parler</td><td>parlé</td></tr>
+              <tr><td>-ir</td><td>→ -i</td><td>finir</td><td>fini</td></tr>
+              <tr><td>-re</td><td>→ -u</td><td>vendre</td><td>vendu</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h4 class="master-subtitle">Irregulares frecuentes</h4>
+        <div class="master-table-wrap">
+          <table class="master-table">
+            <thead>
+              <tr><th>Infinitivo</th><th>Participio pasado</th><th>Ejemplo</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>avoir</td><td>eu</td><td>J’ai eu un problème.</td></tr>
+              <tr><td>être</td><td>été</td><td>Elle a été malade.</td></tr>
+              <tr><td>faire</td><td>fait</td><td>Nous avons fait du sport.</td></tr>
+              <tr><td>voir</td><td>vu</td><td>J’ai vu le film.</td></tr>
+              <tr><td>vouloir</td><td>voulu</td><td>Il a voulu venir.</td></tr>
+              <tr><td>pouvoir</td><td>pu</td><td>Tu as pu finir ?</td></tr>
+              <tr><td>mettre</td><td>mis</td><td>Elle a mis la table.</td></tr>
+              <tr><td>prendre</td><td>pris</td><td>Ils ont pris le train.</td></tr>
+              <tr><td>dire</td><td>dit</td><td>Vous avez dit la vérité.</td></tr>
+              <tr><td>écrire</td><td>écrit</td><td>Nous avons écrit le rapport.</td></tr>
+              <tr><td>ouvrir</td><td>ouvert</td><td>Il a ouvert la porte.</td></tr>
+              <tr><td>naître</td><td>né</td><td>Elle est née en 1990.</td></tr>
+              <tr><td>mourir</td><td>mort</td><td>Il est mort jeune.</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </article>
+
+      <article class="master-card">
+        <h3 class="master-title"><span class="emoji">🧠</span>4. Reglas de Concordancia</h3>
+
+        <h4 class="master-subtitle">A) Con el auxiliar <em>être</em></h4>
+        <p>El participio pasado <strong>siempre concuerda en género y número</strong> con el sujeto.</p>
+        <div class="master-table-wrap">
+          <table class="master-table">
+            <tbody>
+              <tr><td>Il</td><td>est all<strong>é</strong>.</td></tr>
+              <tr><td>Elle</td><td>est all<strong>ée</strong>.</td></tr>
+              <tr><td>Ils</td><td>sont all<strong>és</strong>.</td></tr>
+              <tr><td>Elles</td><td>sont all<strong>ées</strong>.</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="master-example">
+          <p>- Elle s’est lev<strong>ée</strong>.</p>
+          <p>- Elles se sont lev<strong>ées</strong>.</p>
+        </div>
+
+        <h4 class="master-subtitle">B) Con el auxiliar <em>avoir</em></h4>
+        <p>El participio pasado <strong>no concuerda con el sujeto</strong>.</p>
+        <div class="master-key">
+          ¡Excepción! Concuerda con el <strong>CD</strong> solo si este va <strong>antes</strong> del verbo.
+        </div>
+        <div class="master-example">
+          <p>// Sin concordancia</p>
+          <p>J’ai vu <strong>les enfants</strong>.</p>
+          <p>// Con concordancia</p>
+          <p><strong>Les enfants</strong> que j’ai vus.</p>
+          <p>J’ai pris <strong>la voiture</strong>.</p>
+          <p><strong>La voiture</strong> que j’ai prise.</p>
+        </div>
+      </article>
+
+      <div class="grid md:grid-cols-2 gap-4 mb-5">
+        <article class="master-card" style="margin-bottom:0">
+          <h3 class="master-title"><span class="emoji">🚫</span>5. La Forma Negativa</h3>
+          <p>La negación <strong>ne...pas</strong> rodea al <strong>auxiliar</strong>.</p>
+          <div class="master-table-wrap">
+            <table class="master-table">
+              <thead>
+                <tr><th>Tipo</th><th>Ejemplo</th></tr>
+              </thead>
+              <tbody>
+                <tr><td>Con <em>avoir</em></td><td>Je <strong>n’ai pas</strong> mangé.</td></tr>
+                <tr><td>Con <em>être</em></td><td>Il <strong>n’est pas</strong> venu.</td></tr>
+                <tr><td>Verbo pronominal</td><td>Nous <strong>ne nous sommes pas</strong> levés tôt.</td></tr>
+                <tr><td>Otras negaciones</td><td>Je <strong>n’ai jamais</strong> vu ce film.</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </article>
+
+        <article class="master-card" style="margin-bottom:0">
+          <h3 class="master-title"><span class="emoji">❓</span>6. La Forma Interrogativa</h3>
+          <h4 class="master-subtitle" style="margin-top:0">a) Por entonación</h4>
+          <div class="master-example">
+            <p>Tu as vu Marie ?</p>
+            <p>Vous êtes partis hier ?</p>
+          </div>
+          <h4 class="master-subtitle">b) Con “Est-ce que”</h4>
+          <div class="master-example">
+            <p>Est-ce que tu as envoyé le message ?</p>
+            <p>Est-ce que vous êtes allés à Lyon ?</p>
+          </div>
+          <h4 class="master-subtitle">c) Por inversión</h4>
+          <div class="master-example">
+            <p>Avez-vous terminé le rapport ?</p>
+            <p>Êtes-vous venus ensemble ?</p>
+          </div>
+        </article>
       </div>
 
       <div class="grid md:grid-cols-2 gap-4 mb-5">
-        <div class="comp-card">
-          <div class="text-xs font-bold uppercase tracking-widest mb-2" style="color:var(--blue)">Usage</div>
-          <div class="text-sm font-semibold mb-2" style="color:var(--text-dark)">Quand est-ce qu'on l'utilise?</div>
-          <p class="text-sm" style="color:var(--text-muted)">
-            Para una acción terminada, un hecho único o una serie de eventos principales en una narración.
-          </p>
-        </div>
-        <div class="comp-card">
-          <div class="text-xs font-bold uppercase tracking-widest mb-2" style="color:var(--red)">Erreur fréquente</div>
-          <div class="text-sm font-semibold mb-2" style="color:var(--text-dark)">Passé composé vs imparfait</div>
-          <p class="text-sm" style="color:var(--text-muted)">
-            El passé composé cuenta hechos; el imparfait describe contexto, hábitos o acciones en progreso.
-          </p>
-        </div>
+        <article class="master-card" style="margin-bottom:0">
+          <h3 class="master-title"><span class="emoji">🕓</span>7. Expresiones de Tiempo Frecuentes</h3>
+          <div class="master-table-wrap">
+            <table class="master-table">
+              <thead>
+                <tr><th>Expresión</th><th>Traducción</th></tr>
+              </thead>
+              <tbody>
+                <tr><td>hier</td><td>ayer</td></tr>
+                <tr><td>avant-hier</td><td>anteayer</td></tr>
+                <tr><td>ce matin</td><td>esta mañana</td></tr>
+                <tr><td>la semaine dernière</td><td>la semana pasada</td></tr>
+                <tr><td>il y a deux jours</td><td>hace dos días</td></tr>
+                <tr><td>déjà / pas encore</td><td>ya / todavía no</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </article>
+
+        <article class="master-card" style="margin-bottom:0">
+          <h3 class="master-title"><span class="emoji">⚠️</span>8. Casos Especiales y Errores Comunes</h3>
+          <ol class="master-list" style="padding-left:1rem">
+            <li>
+              <strong>Verbos con doble auxiliar</strong>
+              <div class="master-example">
+                <p>Je <strong>suis</strong> monté(e).</p>
+                <p>J’<strong>ai</strong> monté les valises.</p>
+                <p>Il <strong>est</strong> sorti.</p>
+                <p>Il <strong>a</strong> sorti la voiture.</p>
+              </div>
+            </li>
+            <li>
+              <strong>Pronominales con CD</strong>
+              <div class="master-example">
+                <p>Elle s’est lavé <strong>les mains</strong>.</p>
+              </div>
+            </li>
+          </ol>
+        </article>
       </div>
 
-      <div class="section-card mb-5">
-        <div class="text-xs font-bold uppercase tracking-widest mb-2" style="color:var(--blue-mid)">Exemples utiles</div>
-        <div class="grid md:grid-cols-2 gap-4">
-          <div class="mini-card">
-            <div class="text-base font-semibold mb-1" style="color:var(--text-dark)">J'ai visité Paris l'année dernière.</div>
-            <div class="text-sm mb-2" style="color:var(--text-muted)">Visité París el año pasado.</div>
-            <span class="subtema sub-item">Acción terminada en momento concreto</span>
-          </div>
-          <div class="mini-card">
-            <div class="text-base font-semibold mb-1" style="color:var(--text-dark)">Elle est arrivée à huit heures.</div>
-            <div class="text-sm mb-2" style="color:var(--text-muted)">Ella llegó a las ocho.</div>
-            <span class="subtema sub-item">Uso con être</span>
-          </div>
-          <div class="mini-card">
-            <div class="text-base font-semibold mb-1" style="color:var(--text-dark)">Nous avons regardé le film puis nous avons dîné.</div>
-            <div class="text-sm mb-2" style="color:var(--text-muted)">Vimos la película y luego cenamos.</div>
-            <span class="subtema sub-item">Secuencia de eventos</span>
-          </div>
-          <div class="mini-card">
-            <div class="text-base font-semibold mb-1" style="color:var(--text-dark)">Quand j'étais petit, je jouais ici. Hier, j'ai rejoué.</div>
-            <div class="text-sm mb-2" style="color:var(--text-muted)">Contraste entre hábito y hecho puntual.</div>
-            <span class="subtema sub-item">Comparación con imparfait</span>
-          </div>
+      <article class="master-card">
+        <h3 class="master-title"><span class="emoji">🧭</span>9. Comparación con Otros Tiempos</h3>
+        <div class="master-table-wrap">
+          <table class="master-table">
+            <thead>
+              <tr><th>Tiempo</th><th>Uso principal</th><th>Ejemplo</th></tr>
+            </thead>
+            <tbody>
+              <tr><td><strong>Passé composé</strong></td><td>Acción puntual y terminada</td><td>J’ai fini le rapport.</td></tr>
+              <tr><td><strong>Imparfait</strong></td><td>Acción habitual o descripción</td><td>Je travaillais souvent tard.</td></tr>
+              <tr><td><strong>Plus-que-parfait</strong></td><td>Acción anterior a otra acción pasada</td><td>J’avais déjà envoyé le mail.</td></tr>
+              <tr><td><strong>Passé simple</strong></td><td>Narración literaria</td><td>Il entra dans la salle.</td></tr>
+            </tbody>
+          </table>
         </div>
-      </div>
+      </article>
 
-      <div class="section-card">
-        <div class="text-xs font-bold uppercase tracking-widest mb-2" style="color:var(--gold)">Exercices</div>
-        <div class="grid md:grid-cols-3 gap-4">
-          <div class="comp-card">
-            <div class="text-sm font-semibold mb-2" style="color:var(--text-dark)">Complète avec l'auxiliaire correct</div>
-            <ul class="text-sm" style="color:var(--text-muted);padding-left:1rem">
-              <li>Marie ___ arrivée tôt.</li>
-              <li>Nous ___ mangé au restaurant.</li>
-              <li>Je ___ parti en train.</li>
-            </ul>
-          </div>
-          <div class="comp-card">
-            <div class="text-sm font-semibold mb-2" style="color:var(--text-dark)">Choisis entre passé composé et imparfait</div>
-            <ul class="text-sm" style="color:var(--text-muted);padding-left:1rem">
-              <li>Quand j'étais petit, je ___ souvent au parc.</li>
-              <li>Hier soir, nous ___ un documentaire.</li>
-            </ul>
-          </div>
-          <div class="comp-card">
-            <div class="text-sm font-semibold mb-2" style="color:var(--text-dark)">Transforme au passé composé</div>
-            <ul class="text-sm" style="color:var(--text-muted);padding-left:1rem">
-              <li>Je visite le musée.</li>
-              <li>Ils finissent leurs devoirs.</li>
-            </ul>
-          </div>
+      <article class="master-card master-summary">
+        <h3 class="master-title"><span class="emoji">🧮</span>10. Síntesis y Puntos Clave</h3>
+        <ul class="master-list" style="padding-left:1rem">
+          <li>Fórmula: <strong>auxiliar (avoir/être) + participio pasado</strong>.</li>
+          <li>Los verbos con <strong>être</strong> y los pronominales concuerdan con el sujeto.</li>
+          <li>Con <strong>avoir</strong>, hay concordancia con el CD <strong>solo</strong> si va antes.</li>
+          <li>Verbos regulares: -er → <strong>-é</strong>, -ir → <strong>-i</strong>, -re → <strong>-u</strong>.</li>
+          <li>La negación rodea siempre al <strong>auxiliar</strong>.</li>
+        </ul>
+      </article>
+
+      <article class="master-card">
+        <h3 class="master-title"><span class="emoji">🧾</span>11. Ejemplo Profesional Completo</h3>
+        <h4 class="master-subtitle" style="margin-top:0">Correo laboral</h4>
+        <div class="master-example">
+          <p>Bonjour,</p>
+          <p>J’<strong>ai terminé</strong> le rapport hier et je l’<strong>ai envoyé</strong> à notre directeur.</p>
+          <p>Il <strong>a validé</strong> le contenu et nous <strong>avons planifié</strong> la réunion.</p>
+          <p>Marie <strong>est arrivée</strong> tôt ce matin et elle <strong>a préparé</strong> les documents.</p>
+          <p>Nous <strong>nous sommes réunis</strong> à 10 h et nous <strong>avons discuté</strong> des prochaines étapes.</p>
         </div>
-      </div>
+      </article>
+
+      <article class="master-card">
+        <h3 class="master-title"><span class="emoji">🎓</span>Conclusión</h3>
+        <p>
+          El <strong>passé composé</strong> no es solo un tiempo gramatical, sino una
+          <strong>herramienta de precisión comunicativa</strong>. Su uso correcto refleja claridad,
+          profesionalismo y dominio lingüístico, esenciales en cualquier contexto profesional francófono.
+        </p>
+      </article>
     </section>
 
     <section id="ressources" class="mb-8">
