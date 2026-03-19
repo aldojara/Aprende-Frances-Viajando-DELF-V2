@@ -1,0 +1,1078 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Le futur antérieur — Aprende Francés Viajando</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    :root {
+      --bg:           #F7F6F2;
+      --bg-white:     #FFFFFF;
+      --bg-soft:      #EFEDE8;
+      --bg-card:      #FFFFFF;
+      --border:       #E2DED7;
+      --border-dark:  #C8C3BB;
+      --text-dark:    #1A1814;
+      --text-body:    #3D3A35;
+      --text-muted:   #7A756D;
+      --text-light:   #ABA69E;
+      --blue:         #0055A4;
+      --blue-light:   #EBF2FB;
+      --blue-mid:     #3B82F6;
+      --red:          #C0392B;
+      --red-light:    #FAEAEA;
+      --gold:         #B8860B;
+      --gold-light:   #FDF3DC;
+      --shadow-sm: 0 1px 3px rgba(0,0,0,.06), 0 1px 2px rgba(0,0,0,.04);
+      --shadow-md: 0 4px 16px rgba(0,0,0,.09), 0 1px 4px rgba(0,0,0,.05);
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Inter', system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--text-body);
+      line-height: 1.65;
+    }
+    .font-display { font-family: 'Playfair Display', Georgia, serif; }
+
+    .tricolor-bar {
+      height: 3px;
+      background: linear-gradient(90deg, #0055A4 0% 33.3%, #FFFFFF 33.3% 66.6%, #C0392B 66.6% 100%);
+    }
+    .tricolor-title {
+      background: linear-gradient(120deg, #0055A4 0%, #5B8DD9 25%, #C87E6E 55%, #C0392B 100%);
+      background-size: 250% auto;
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      animation: tricolor-sweep 7s ease-in-out infinite;
+    }
+    @keyframes tricolor-sweep {
+      0%   { background-position: 0% center; }
+      50%  { background-position: 100% center; }
+      100% { background-position: 0% center; }
+    }
+    .tricolor-line {
+      display: flex;
+      width: 72px;
+      height: 2px;
+      margin: 0 auto;
+      border-radius: 99px;
+      overflow: hidden;
+    }
+    .tricolor-line span { flex: 1; }
+    .hero-bg {
+      background:
+        radial-gradient(ellipse 75% 60% at 50% -8%, rgba(0,85,164,.07) 0%, transparent 65%),
+        radial-gradient(ellipse 35% 35% at 88% 70%, rgba(192,57,43,.05) 0%, transparent 55%),
+        radial-gradient(ellipse 30% 30% at 12% 75%, rgba(184,134,11,.04) 0%, transparent 55%),
+        var(--bg-white);
+    }
+    .navbar {
+      background: rgba(247,246,242,.93);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--border);
+    }
+    .btn-primary {
+      background: var(--blue);
+      color: #fff;
+      font-weight: 600;
+      padding: .65rem 1.45rem;
+      border-radius: .6rem;
+      transition: all .18s;
+      display: inline-flex;
+      align-items: center;
+      gap: .4rem;
+      text-decoration: none;
+      font-size: .88rem;
+      box-shadow: 0 2px 8px rgba(0,85,164,.22);
+    }
+    .btn-primary:hover {
+      background: #004494;
+      box-shadow: 0 4px 18px rgba(0,85,164,.32);
+      transform: translateY(-1px);
+    }
+    .btn-outline {
+      border: 1.5px solid var(--border-dark);
+      color: var(--text-body);
+      font-weight: 500;
+      padding: .65rem 1.45rem;
+      border-radius: .6rem;
+      transition: all .18s;
+      display: inline-flex;
+      align-items: center;
+      gap: .4rem;
+      text-decoration: none;
+      font-size: .88rem;
+      background: var(--bg-white);
+    }
+    .btn-outline:hover {
+      border-color: var(--blue);
+      color: var(--blue);
+      transform: translateY(-1px);
+    }
+    .eyebrow {
+      display: block;
+      font-size: .68rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .14em;
+      color: var(--blue);
+      margin-bottom: .45rem;
+    }
+    .badge-b1 {
+      background: var(--blue-light);
+      color: var(--blue);
+      border: 1px solid rgba(0,85,164,.2);
+      padding: .25rem .8rem;
+      border-radius: 99px;
+      font-size: .72rem;
+      font-weight: 700;
+    }
+    .badge-soft {
+      background: var(--gold-light);
+      color: var(--gold);
+      border: 1px solid rgba(184,134,11,.2);
+      padding: .25rem .8rem;
+      border-radius: 99px;
+      font-size: .72rem;
+      font-weight: 600;
+    }
+    .breadcrumbs {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: .35rem;
+      font-size: .82rem;
+      margin-bottom: 1.2rem;
+      color: var(--text-light);
+    }
+    .breadcrumbs a {
+      color: var(--text-muted);
+      text-decoration: none;
+      transition: color .15s, background .15s;
+      padding: .12rem .35rem;
+      border-radius: .45rem;
+    }
+    .breadcrumbs a:hover {
+      color: var(--blue);
+      background: var(--blue-light);
+    }
+    .breadcrumbs-current {
+      color: var(--text-dark);
+      font-weight: 600;
+      padding: .12rem .35rem;
+    }
+    .hero-nav {
+      display: flex;
+      justify-content: center;
+      gap: .75rem;
+      flex-wrap: wrap;
+      margin-top: 1rem;
+    }
+    .hero-nav-link {
+      display: inline-flex;
+      align-items: center;
+      gap: .4rem;
+      padding: .55rem .95rem;
+      border-radius: .75rem;
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,.78);
+      color: var(--text-body);
+      text-decoration: none;
+      font-size: .82rem;
+      font-weight: 600;
+      box-shadow: var(--shadow-sm);
+      transition: all .16s;
+    }
+    .hero-nav-link:hover {
+      color: var(--blue);
+      border-color: rgba(0,85,164,.26);
+      background: var(--blue-light);
+      transform: translateY(-1px);
+    }
+    .sidebar { position: sticky; top: 5rem; }
+    .sidebar-link {
+      display: block;
+      padding: .45rem .8rem;
+      font-size: .82rem;
+      color: var(--text-muted);
+      border-left: 2px solid var(--border);
+      text-decoration: none;
+      transition: all .13s;
+    }
+    .sidebar-link:hover,
+    .sidebar-link.active {
+      color: var(--blue);
+      border-color: var(--blue);
+      background: var(--blue-light);
+    }
+    .info-box {
+      padding: 1rem 1.25rem;
+      border-radius: .75rem;
+      border-left: 3px solid var(--blue);
+      background: var(--blue-light);
+      font-size: .85rem;
+      color: var(--text-body);
+    }
+    .sec-divider { border: none; border-top: 1px solid var(--border); margin: 0; }
+    .section-card {
+      background: var(--bg-white);
+      border: 1px solid var(--border);
+      border-radius: .95rem;
+      padding: 1.5rem;
+      box-shadow: var(--shadow-sm);
+    }
+    .comp-card {
+      background: var(--bg-white);
+      border: 1px solid var(--border);
+      border-radius: .875rem;
+      padding: 1.25rem;
+      box-shadow: var(--shadow-sm);
+      transition: all .18s;
+    }
+    .comp-card:hover {
+      box-shadow: var(--shadow-md);
+      transform: translateY(-2px);
+    }
+    .mini-card {
+      background: linear-gradient(180deg, #fff, #fcfbf8);
+      border: 1px solid var(--border);
+      border-radius: .9rem;
+      padding: 1rem;
+    }
+    .subtema {
+      display: inline-flex;
+      align-items: center;
+      padding: .28rem .72rem;
+      border-radius: 99px;
+      background: var(--bg-white);
+      border: 1px solid var(--border);
+      font-size: .78rem;
+      color: var(--text-body);
+      margin: .22rem;
+      transition: all .13s;
+      box-shadow: var(--shadow-sm);
+      text-decoration: none;
+    }
+    .subtema:hover {
+      border-color: var(--blue);
+      color: var(--blue);
+      background: var(--blue-light);
+    }
+    .subtema.sub-item {
+      background: transparent;
+      border-style: dashed;
+      border-color: var(--border-dark);
+      font-size: .74rem;
+      color: var(--text-muted);
+      box-shadow: none;
+    }
+    .resource-tabs {
+      display: flex;
+      gap: .65rem;
+      flex-wrap: wrap;
+      margin-bottom: 1.1rem;
+    }
+    .resource-tab {
+      padding: .8rem 1.05rem;
+      border-radius: .75rem;
+      border: 1.5px solid var(--border);
+      background: var(--bg-white);
+      color: var(--text-muted);
+      font-weight: 600;
+      font-size: .86rem;
+      cursor: pointer;
+      transition: all .16s;
+      box-shadow: var(--shadow-sm);
+    }
+    .resource-tab.active,
+    .resource-tab:hover {
+      color: var(--blue);
+      border-color: rgba(0,85,164,.28);
+      background: var(--blue-light);
+    }
+    .resource-panel { display: none; }
+    .resource-panel.active { display: block; }
+    .formula-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: .9rem;
+    }
+    .formula-box {
+      padding: 1rem;
+      border-radius: .85rem;
+      background: linear-gradient(180deg, #ffffff, #f7f9fc);
+      border: 1px solid rgba(0,85,164,.12);
+    }
+    .formula-box strong {
+      display: block;
+      margin-bottom: .2rem;
+      color: var(--text-dark);
+    }
+    .master-card {
+      background: var(--bg-white);
+      border: 1px solid var(--border);
+      border-radius: 1rem;
+      padding: 1.4rem 1.5rem;
+      box-shadow: var(--shadow-sm);
+      margin-bottom: 1.1rem;
+    }
+    .master-title {
+      display: flex;
+      align-items: center;
+      gap: .7rem;
+      margin: 0 0 1rem;
+      padding-bottom: .75rem;
+      border-bottom: 2px solid var(--blue-light);
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 1.65rem;
+      line-height: 1.2;
+      color: var(--text-dark);
+    }
+    .master-title .emoji {
+      font-size: 1.8rem;
+      line-height: 1;
+      flex-shrink: 0;
+    }
+    .master-subtitle {
+      margin: 1.15rem 0 .65rem;
+      font-size: 1.12rem;
+      font-weight: 700;
+      color: var(--blue);
+    }
+    .master-example {
+      background: linear-gradient(180deg, #ffffff, #f7f9fc);
+      border: 1px solid rgba(0,85,164,.12);
+      border-left: 4px solid var(--blue-mid);
+      padding: .8rem 1rem;
+      margin: .8rem 0 1rem;
+      border-radius: .7rem;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+      font-size: .92rem;
+      color: var(--text-body);
+    }
+    .master-example p {
+      margin: .2rem 0;
+    }
+    .master-key {
+      background: var(--blue-light);
+      border: 1px solid rgba(0,85,164,.16);
+      border-radius: .8rem;
+      padding: .95rem 1rem;
+      margin: 1rem 0;
+      color: var(--text-body);
+    }
+    .master-key.warm {
+      background: var(--gold-light);
+      border-color: rgba(184,134,11,.22);
+    }
+    .master-table-wrap {
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      margin: .9rem 0 1.1rem;
+    }
+    .master-table {
+      width: 100%;
+      border-collapse: collapse;
+      background: var(--bg-white);
+      font-size: .95rem;
+    }
+    .master-table th,
+    .master-table td {
+      border: 1px solid var(--border);
+      padding: .72rem .9rem;
+      text-align: left;
+      vertical-align: top;
+    }
+    .master-table th {
+      background: var(--bg-soft);
+      color: var(--text-body);
+      font-weight: 700;
+    }
+    .master-list li {
+      margin-bottom: .9rem;
+    }
+    .master-summary {
+      background: linear-gradient(135deg, #0f3f74, #1c5ca0);
+      border-color: rgba(0,85,164,.2);
+      box-shadow: var(--shadow-md);
+      color: #fff;
+    }
+    .master-summary .master-title {
+      color: #fff;
+      border-color: rgba(255,255,255,.18);
+    }
+    .master-summary p,
+    .master-summary li,
+    .master-summary strong {
+      color: #fff;
+    }
+
+
+    .guide-import {
+      display: block;
+    }
+    .guide-import > section {
+      margin-bottom: 1.3rem !important;
+    }
+    .guide-import .gradient-bg,
+    .guide-import .hero-gradient {
+      background: linear-gradient(135deg, #0055A4 0%, #3B82F6 100%);
+      color: #fff;
+      border-radius: 1.25rem;
+      box-shadow: var(--shadow-md);
+    }
+    .guide-import .card,
+    .guide-import .infographic-card {
+      background: var(--bg-white);
+      border: 1px solid var(--border);
+      border-radius: 1rem;
+      box-shadow: var(--shadow-sm);
+    }
+    .guide-import .card:hover,
+    .guide-import .infographic-card:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-md);
+    }
+    .guide-import .infographic-box,
+    .guide-import .rule-highlight,
+    .guide-import .formula-box {
+      border-left: 4px solid var(--blue-mid);
+      background: var(--blue-light);
+      border-radius: .75rem;
+    }
+    .guide-import .attention-box {
+      border: 2px dashed #f59e0b;
+      background: var(--gold-light);
+      border-radius: .85rem;
+    }
+    .guide-import .verb-tag,
+    .guide-import .badge-active,
+    .guide-import .badge-passive,
+    .guide-import .ending,
+    .guide-import .example-positive,
+    .guide-import .example-negative {
+      display: inline-block;
+      padding: .22rem .62rem;
+      margin: .18rem;
+      border-radius: .45rem;
+      background: var(--bg-soft);
+      font-weight: 600;
+      font-size: .88rem;
+    }
+    .guide-import .badge-active {
+      background: var(--blue-light);
+      color: var(--blue);
+    }
+    .guide-import .badge-passive,
+    .guide-import .example-negative {
+      background: var(--red-light);
+      color: var(--red);
+    }
+    .guide-import .example-positive {
+      background: #eefbf3;
+      color: #137333;
+    }
+    .guide-import .french-example,
+    .guide-import .gradient-text,
+    .guide-import .marker-pqp,
+    .guide-import .marker-past,
+    .guide-import .code-font {
+      font-weight: 700;
+    }
+    .guide-import .french-example,
+    .guide-import .gradient-text,
+    .guide-import .marker-pqp {
+      color: var(--blue);
+    }
+    .guide-import .marker-past {
+      color: var(--red);
+    }
+    .guide-import .timeline-line,
+    .guide-import .timeline-container {
+      position: relative;
+    }
+    .guide-import .timeline-line::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: #cbd5e1;
+      z-index: 0;
+    }
+    .guide-import .timeline-point,
+    .guide-import .step-number,
+    .guide-import .transformation-arrow {
+      position: relative;
+      z-index: 1;
+    }
+    .guide-import table {
+      width: 100%;
+      border-collapse: collapse;
+      background: var(--bg-white);
+      margin: 1rem 0;
+    }
+    .guide-import th,
+    .guide-import td {
+      border: 1px solid var(--border);
+      padding: .72rem .9rem;
+      text-align: left;
+      vertical-align: top;
+    }
+    .guide-import th {
+      background: var(--bg-soft);
+      color: var(--text-body);
+      font-weight: 700;
+    }
+    .guide-import h2,
+    .guide-import h3,
+    .guide-import h4 {
+      color: var(--text-dark);
+    }
+    .guide-import .desktop-only {
+      display: block;
+    }
+    @media (max-width: 640px) {
+      .guide-import .desktop-only {
+        display: none !important;
+      }
+    }
+
+    .resource-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1rem;
+    }
+    .media-card {
+      border: 1px solid var(--border);
+      border-radius: 1rem;
+      overflow: hidden;
+      background: #fff;
+      box-shadow: var(--shadow-sm);
+    }
+    .media-thumb {
+      aspect-ratio: 16 / 9;
+      position: relative;
+      display: grid;
+      place-items: center;
+      background:
+        linear-gradient(135deg, rgba(0,85,164,.08), rgba(192,57,43,.05)),
+        radial-gradient(circle at 20% 20%, rgba(184,134,11,.18), transparent 18%),
+        #f7f6f2;
+      color: var(--text-dark);
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: clamp(1.1rem, 2vw, 1.8rem);
+      text-align: center;
+      padding: 1rem;
+    }
+    .play-pill {
+      position: absolute;
+      width: 4.1rem;
+      height: 2.8rem;
+      display: grid;
+      place-items: center;
+      border-radius: .9rem;
+      background: #e53935;
+      color: #fff;
+      font-size: 1.15rem;
+      box-shadow: 0 10px 18px rgba(229,57,53,.26);
+    }
+    .pager-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1rem;
+    }
+    .pager-card {
+      display: block;
+      text-decoration: none;
+      color: inherit;
+      background: linear-gradient(180deg, #fff, #fcfbf8);
+      border: 1px solid var(--border);
+      border-radius: .95rem;
+      padding: 1rem 1.05rem;
+      box-shadow: var(--shadow-sm);
+      transition: all .18s;
+    }
+    .pager-card:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-md);
+      border-color: rgba(0,85,164,.2);
+    }
+    .pager-label {
+      display: block;
+      font-size: .68rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .12em;
+      margin-bottom: .3rem;
+      color: var(--text-light);
+    }
+    .pager-title {
+      display: block;
+      font-size: .95rem;
+      font-weight: 600;
+      color: var(--text-dark);
+      line-height: 1.4;
+    }
+    .pager-meta {
+      display: block;
+      margin-top: .35rem;
+      font-size: .8rem;
+      color: var(--text-muted);
+    }
+
+    @media (max-width: 1024px) {
+      .formula-grid,
+      .resource-grid,
+      .pager-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+<div class="tricolor-bar"></div>
+
+<header class="navbar sticky top-0 z-50">
+  <div class="max-w-6xl mx-auto px-5 py-3.5 flex items-center justify-between">
+    <a href="index.html" class="font-display font-bold text-lg" style="color:var(--text-dark);text-decoration:none">
+      Aprende
+      <span style="background:linear-gradient(100deg,#0055A4 0%,#6A9FD4 40%,#C0392B 100%);-webkit-background-clip:text;background-clip:text;color:transparent"> Francés </span>
+      Viajando
+    </a>
+    <nav class="hidden md:flex gap-6 text-sm" style="color:var(--text-muted)">
+      <a href="index.html" class="hover:text-blue-700 transition-colors">Inicio</a>
+      <a href="cursos.html" class="hover:text-blue-700 transition-colors">Cursos</a>
+      <a href="ejercicios.html" class="hover:text-blue-700 transition-colors">Ejercicios (IA)</a>
+      <a href="index.html#grammaire" style="color:var(--blue);font-weight:600">DELF &amp; Grammaire</a>
+      <a href="recursos.html" class="hover:text-blue-700 transition-colors">Recursos</a>
+      <a href="contacto.html" class="hover:text-blue-700 transition-colors">Contacto</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero-bg px-5 text-center" style="padding-top:4.8rem;padding-bottom:4.2rem;border-bottom:1px solid var(--border)">
+  <span class="eyebrow">Sous-thème individuel · Grammaire B1</span>
+  <div class="max-w-4xl mx-auto">
+    <nav class="breadcrumbs" aria-label="Breadcrumb">
+      <a href="index.html">Accueil</a>
+      <span>/</span>
+      <a href="index.html#grammaire">Grammaire</a>
+      <span>/</span>
+      <a href="index.html#mod1">Les modes et les temps</a>
+      <span>/</span>
+      <span class="breadcrumbs-current">Le futur antérieur</span>
+    </nav>
+    <h1 class="font-display font-black mb-4 leading-tight" style="font-size:clamp(2.4rem,6vw,4.8rem)">
+      <span class="tricolor-title">Le futur antérieur</span>
+    </h1>
+    <div class="tricolor-line mb-6">
+      <span style="background:#0055A4"></span>
+      <span style="background:#C8C0B8"></span>
+      <span style="background:#C0392B"></span>
+    </div>
+    <p class="max-w-3xl mx-auto text-base mb-7" style="color:var(--text-muted)">
+      Dominando la anterioridad y la suposición en el francés moderno. Una guía visual completa.
+    </p>
+    <div class="flex justify-center gap-2 mb-8 flex-wrap">
+      <span class="badge-b1">DELF B1</span>
+      <span class="badge-soft">Temps du futur</span>
+      <span class="badge-b1">Guide complet</span>
+    </div>
+    <div class="flex justify-center gap-3 flex-wrap">
+      <a href="#maitriser" class="btn-primary">📘 Maîtriser le thème</a>
+      <a href="#ressources" class="btn-outline">🎥 Ressources visuelles</a>
+    </div>
+    <div class="hero-nav"><a href="le-futur.html" class="hero-nav-link">← Thème précédent: Le futur </a><a href="index.html#mod1" class="hero-nav-link">← Retour au module</a><a href="le-subjonctif.html" class="hero-nav-link">Thème suivant: Le subjonctif →</a></div>
+  </div>
+</section>
+
+<hr class="sec-divider">
+
+<div class="max-w-6xl mx-auto px-5 py-12 flex gap-10">
+  <aside class="hidden lg:block w-56 shrink-0">
+    <div class="sidebar">
+      <div style="font-size:.67rem;font-weight:700;text-transform:uppercase;letter-spacing:.12em;color:var(--text-light);margin-bottom:.75rem">En esta página</div>
+      <nav class="space-y-0.5">
+        <a href="#maitriser" class="sidebar-link active">Maîtriser le thème</a>
+        <a href="#ressources" class="sidebar-link">Ressources visuelles</a>
+      </nav>
+    </div>
+  </aside>
+
+  <main class="flex-1 min-w-0">
+    <section class="mb-8">
+      <div class="info-box">
+        <strong style="color:var(--blue)">Objectif du sous-thème:</strong>
+        Comprender la formación, los usos y los puntos sensibles de Le futur antérieur en contextos habituales y profesionales del francés.
+      </div>
+    </section>
+
+
+
+    <section id="maitriser" class="mb-12">
+      <span class="eyebrow">Bloc principal</span>
+      <h2 class="font-display text-4xl font-bold mb-2" style="color:var(--text-dark)">Maîtriser le thème</h2>
+      <p class="mb-6 text-sm" style="color:var(--text-muted);max-width:760px">
+        Explicaciones, cuadros visuales, ejemplos y puntos de referencia para dominar Le futur antérieur paso a paso.
+      </p>
+      <div class="guide-import"><!-- Section 1: Concepto -->
+        <section id="concept" class="space-y-8">
+            <div class="flex items-center space-x-4">
+                <div class="step-number">1</div>
+                <h2 class="text-3xl font-bold text-blue-900">¿Qué es y para qué sirve?</h2>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-8 items-center">
+                <div class="space-y-4">
+                    <p class="text-lg leading-relaxed">
+                        El <strong>futur antérieur</strong> es un tiempo compuesto que nos permite viajar mentalmente al futuro y mirar hacia atrás para ver una acción ya finalizada.
+                    </p>
+                    <ul class="space-y-3">
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-blue-500 mt-1 mr-3"></i>
+                            <span><strong>Anterioridad:</strong> Una acción que termina antes que otra en el futuro.</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-blue-500 mt-1 mr-3"></i>
+                            <span><strong>Suposición:</strong> Una hipótesis sobre algo que probablemente ocurrió en el pasado.</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- INFOGRAFÍA 1: LÍNEA DEL TIEMPO -->
+                <div class="infographic-card p-8 bg-blue-50 border border-blue-100">
+                    <h3 class="text-center font-bold mb-8 text-blue-800 underline">La Lógica del Tiempo</h3>
+                    <div class="relative py-12">
+                        <div class="timeline-line w-full"></div>
+                        
+                        <!-- Acción 1 -->
+                        <div class="absolute left-1/4 flex flex-col items-center -top-16">
+                            <span class="bg-blue-600 text-white text-xs px-2 py-1 rounded mb-2">Acción A</span>
+                            <div class="timeline-point"></div>
+                            <span class="mt-4 text-sm font-bold text-blue-700">Futur Antérieur</span>
+                            <span class="text-xs text-slate-500 italic">(Terminada primero)</span>
+                        </div>
+
+                        <!-- Acción 2 -->
+                        <div class="absolute left-3/4 flex flex-col items-center -top-16">
+                            <span class="bg-slate-400 text-white text-xs px-2 py-1 rounded mb-2">Acción B</span>
+                            <div class="timeline-point bg-slate-400"></div>
+                            <span class="mt-4 text-sm font-bold text-slate-700">Futur Simple</span>
+                            <span class="text-xs text-slate-500 italic">(Ocurre después)</span>
+                        </div>
+                    </div>
+                    <p class="mt-16 text-center text-sm italic text-slate-600">
+                        "Quand <strong>j'aurai fini</strong> (A), je <strong>partirai</strong> (B)."
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 2: Formación -->
+        <section id="formation" class="space-y-8">
+            <div class="flex items-center space-x-4">
+                <div class="step-number">2</div>
+                <h2 class="text-3xl font-bold text-blue-900">La "Receta" Gramatical</h2>
+            </div>
+
+            <div class="infographic-card p-10 overflow-hidden">
+                <div class="flex flex-col md:flex-row items-center justify-around gap-6">
+                    <!-- Auxiliar -->
+                    <div class="text-center p-6 formula-box rounded-xl w-full md:w-1/3">
+                        <span class="block text-xs uppercase tracking-widest text-blue-600 font-bold mb-2">Auxiliare</span>
+                        <div class="text-2xl font-mono font-bold text-blue-900">Avoir / Être</div>
+                        <span class="text-sm text-blue-700 font-semibold italic">en Futur Simple</span>
+                    </div>
+
+                    <div class="text-4xl font-bold text-slate-300">+</div>
+
+                    <!-- Participe Passé -->
+                    <div class="text-center p-6 formula-box rounded-xl w-full md:w-1/3">
+                        <span class="block text-xs uppercase tracking-widest text-blue-600 font-bold mb-2">Verbe</span>
+                        <div class="text-2xl font-mono font-bold text-blue-900">Participe Passé</div>
+                        <span class="text-sm text-blue-700 font-semibold italic">del verbo principal</span>
+                    </div>
+                </div>
+
+                <div class="mt-10 grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="bg-slate-50 p-4 rounded-lg border border-slate-200">
+                        <h4 class="font-bold text-blue-800 mb-2 border-b pb-1">Ejemplo con AVOIR</h4>
+                        <p class="font-mono italic">J'<strong>aurai</strong> mangé</p>
+                        <p class="font-mono italic">Tu <strong>auras</strong> fini</p>
+                        <p class="font-mono italic">Ils <strong>auront</strong> compris</p>
+                    </div>
+                    <div class="bg-slate-50 p-4 rounded-lg border border-slate-200">
+                        <h4 class="font-bold text-blue-800 mb-2 border-b pb-1">Ejemplo con ÊTRE</h4>
+                        <p class="font-mono italic">Je <strong>serai</strong> allé(e)</p>
+                        <p class="font-mono italic">Nous <strong>serons</strong> parti(e)s</p>
+                        <p class="font-mono italic">Elle <strong>sera</strong> rentrée</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 3: Uso como Hipótesis -->
+        <section id="hypothesis" class="space-y-8">
+            <div class="flex items-center space-x-4">
+                <div class="step-number">3</div>
+                <h2 class="text-3xl font-bold text-blue-900">El Valor de Suposición</h2>
+            </div>
+
+            <div class="bg-white rounded-2xl p-8 shadow-sm border border-slate-200 flex flex-col md:flex-row gap-8 items-center">
+                <div class="md:w-1/2 space-y-4">
+                    <p class="text-lg">
+                        ¿Sabías que no siempre se refiere al futuro? A veces lo usamos para explicar un hecho presente mediante una suposición sobre el pasado.
+                    </p>
+                    <div class="p-4 bg-yellow-50 border-l-4 border-yellow-400">
+                        <p class="font-bold text-yellow-800 italic">"Il est en retard : il aura oublié notre rendez-vous."</p>
+                        <p class="text-sm text-yellow-700 mt-1">Él está retrasado: probablemente olvidó nuestra cita.</p>
+                    </div>
+                </div>
+                
+                <!-- INFOGRAFÍA 2: EL DETECTIVE -->
+                <div class="md:w-1/2 flex justify-center">
+                    <div class="relative bg-blue-100 h-64 w-64 rounded-full flex flex-col items-center justify-center border-4 border-white shadow-inner">
+                        <i class="fas fa-search text-6xl text-blue-500 mb-2 opacity-30 absolute"></i>
+                        <span class="text-4xl font-bold text-blue-800">?</span>
+                        <div class="absolute -bottom-2 bg-blue-900 text-white px-4 py-2 rounded-full text-sm font-bold">
+                            SUPPOSITION PAST
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 4: Estructuras y Marcadores -->
+        <section id="markers" class="space-y-8">
+            <div class="flex items-center space-x-4">
+                <div class="step-number">4</div>
+                <h2 class="text-3xl font-bold text-blue-900">Disparadores Gramaticales</h2>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
+                <div class="infographic-card p-6 text-center">
+                    <div class="text-blue-500 text-3xl mb-2"><i class="fas fa-clock"></i></div>
+                    <span class="font-bold block text-lg">Quand</span>
+                    <span class="text-sm text-slate-500">Cuando</span>
+                </div>
+                <div class="infographic-card p-6 text-center">
+                    <div class="text-blue-500 text-3xl mb-2"><i class="fas fa-hourglass-start"></i></div>
+                    <span class="font-bold block text-lg">Dès que</span>
+                    <span class="text-sm text-slate-500">En cuanto</span>
+                </div>
+                <div class="infographic-card p-6 text-center">
+                    <div class="text-blue-500 text-3xl mb-2"><i class="fas fa-history"></i></div>
+                    <span class="font-bold block text-lg">Aussitôt que</span>
+                    <span class="text-sm text-slate-500">Tan pronto como</span>
+                </div>
+                <div class="infographic-card p-6 text-center">
+                    <div class="text-blue-500 text-3xl mb-2"><i class="fas fa-calendar-check"></i></div>
+                    <span class="font-bold block text-lg">Lorsque</span>
+                    <span class="text-sm text-slate-500">Cuando (formal)</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 5: Errores Frecuentes y Alerta -->
+        <section id="alerts" class="space-y-8">
+            <div class="flex items-center space-x-4">
+                <div class="step-number">5</div>
+                <h2 class="text-3xl font-bold text-blue-900">Zona de Cuidado</h2>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="bg-red-50 p-6 rounded-xl border border-red-100">
+                    <h3 class="flex items-center text-red-700 font-bold mb-4">
+                        <i class="fas fa-exclamation-triangle mr-2"></i> El Error más Común
+                    </h3>
+                    <p class="text-sm text-slate-700">
+                        No usar el Futur Simple para ambas acciones. Si una ocurre <strong>antes</strong>, usa el Futur Antérieur para dar precisión.
+                    </p>
+                    <div class="mt-4 flex space-x-2 text-xs">
+                        <span class="line-through text-slate-400">Quand je finirai, je mangerai.</span>
+                        <span class="text-green-600 font-bold">Quand j'aurai fini...</span>
+                    </div>
+                </div>
+
+                <div class="bg-orange-50 p-6 rounded-xl border border-orange-100">
+                    <h3 class="flex items-center text-orange-700 font-bold mb-4">
+                        <i class="fas fa-sync-alt mr-2"></i> El Acuerdo del Participio
+                    </h3>
+                    <p class="text-sm text-slate-700">
+                        Cuando uses el auxiliar <strong>être</strong>, recuerda que el participio debe concordar en género y número con el sujeto.
+                    </p>
+                    <div class="mt-4 flex flex-col space-y-1 text-xs">
+                        <span>Elle sera parti<strong>e</strong>.</span>
+                        <span>Ils seront parti<strong>s</strong>.</span>
+                    </div>
+                </div>
+            </div>
+        </section></div>
+    </section>
+
+
+    <section id="ressources" class="mb-8">
+      <span class="eyebrow">Bloc visuel</span>
+      <h2 class="font-display text-4xl font-bold mb-2" style="color:var(--text-dark)">Ressources visuelles</h2>
+      <p class="mb-6 text-sm" style="color:var(--text-muted);max-width:760px">
+        Renforce ce thème avec des vidéos, des fiches visuelles et des ressources d'appui pour retenir plus vite les points essentiels.
+      </p>
+
+      <div class="section-card">
+        <div class="resource-tabs">
+          <button class="resource-tab active" data-panel="videos">🎥 Vidéos explicatives</button>
+          <button class="resource-tab" data-panel="infographies">🧭 Infographies et autres ressources</button>
+        </div>
+
+        <div id="resource-videos" class="resource-panel active">
+          <div class="resource-grid mb-5">
+            <article class="media-card">
+              <div class="media-thumb">
+                <div class="play-pill">▶</div>
+                Le futur antérieur
+              </div>
+              <div class="p-4">
+                <div class="text-sm font-semibold mb-1" style="color:var(--text-dark)">Niveau B1: Le futur antérieur en français</div>
+                <p class="text-sm mb-3" style="color:var(--text-muted)">Vidéo de referencia para comprender la estructura, el uso y los errores frecuentes.</p>
+                <a href="https://www.youtube.com/@Aprende.Frances.Viajando" target="_blank" rel="noopener" class="subtema">Ver canal</a>
+              </div>
+            </article>
+
+            <article class="media-card">
+              <div class="media-thumb">
+                <div class="play-pill">▶</div>
+                Comprendre Le futur antérieur
+              </div>
+              <div class="p-4">
+                <div class="text-sm font-semibold mb-1" style="color:var(--text-dark)">Comprendre Le futur antérieur pas à pas</div>
+                <p class="text-sm mb-3" style="color:var(--text-muted)">Recurso visual para repasar la lógica del tema antes de practicarlo.</p>
+                <a href="https://www.youtube.com/@Aprende.Frances.Viajando" target="_blank" rel="noopener" class="subtema">Explorar vídeos</a>
+              </div>
+            </article>
+          </div>
+
+          <div class="mini-card">
+            <div class="text-sm font-semibold mb-2" style="color:var(--text-dark)">Consejo de estudio</div>
+            <p class="text-sm" style="color:var(--text-muted)">
+              Empieza por un recurso visual para fijar la idea general y vuelve después a <strong>Maîtriser le thème</strong>
+              para consolidar la estructura, los ejemplos y la práctica.
+            </p>
+          </div>
+        </div>
+
+        <div id="resource-infographies" class="resource-panel">
+          <div class="resource-grid mb-5">
+            <article class="media-card">
+              <div class="media-thumb">Fiche visuelle</div>
+              <div class="p-4">
+                <div class="text-sm font-semibold mb-1" style="color:var(--text-dark)">Ficha visual del tema</div>
+                <p class="text-sm mb-3" style="color:var(--text-muted)">Resumen visual para repasar la estructura y los puntos de referencia más útiles.</p>
+                <a href="#maitriser" class="subtema">Ver estructura</a>
+              </div>
+            </article>
+
+            <article class="media-card">
+              <div class="media-thumb" style="background:linear-gradient(135deg,#fdf3dc,#fffaf0)">Checklist DELF</div>
+              <div class="p-4">
+                <div class="text-sm font-semibold mb-1" style="color:var(--text-dark)">Errores frecuentes y correcciones</div>
+                <p class="text-sm mb-3" style="color:var(--text-muted)">Checklist breve para revisar antes de escribir, hablar o practicar ejercicios.</p>
+                <a href="#maitriser" class="subtema">Revisar puntos clave</a>
+              </div>
+            </article>
+          </div>
+
+          <div class="grid md:grid-cols-2 gap-4">
+            <div class="mini-card">
+              <div class="text-sm font-semibold mb-2" style="color:var(--text-dark)">Recursos de apoyo</div>
+              <div class="flex flex-wrap">
+                <a href="https://www.youtube.com/@Aprende.Frances.Viajando" target="_blank" rel="noopener" class="subtema">Canal YouTube</a>
+                <a href="#maitriser" class="subtema">Resumen del tema</a>
+                <a href="#maitriser" class="subtema">Ejemplos guiados</a>
+              </div>
+            </div>
+            <div class="mini-card">
+              <div class="text-sm font-semibold mb-2" style="color:var(--text-dark)">Temas relacionados</div>
+              <div class="flex flex-wrap"><a href="le-futur.html" class="subtema">Le futur</a><a href="le-plus-que-parfait.html" class="subtema">Le plus-que-parfait</a><a href="le-conditionnel.html" class="subtema">Le conditionnel</a></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <section class="mb-8">
+      <span class="eyebrow">Navigation</span>
+      <h2 class="font-display text-4xl font-bold mb-2" style="color:var(--text-dark)">Continuer</h2>
+      <p class="mb-6 text-sm" style="color:var(--text-muted);max-width:720px">
+        Accesos rápidos para volver al inicio, regresar al módulo o continuar con el siguiente subtema.
+      </p>
+
+      <div class="pager-grid">
+        <a href="le-futur.html" class="pager-card">
+          <span class="pager-label">Précédent</span>
+          <span class="pager-title">Le futur</span>
+          <span class="pager-meta">Tema anterior del módulo</span>
+        </a>
+        <a href="index.html#mod1" class="pager-card">
+          <span class="pager-label">Module</span>
+          <span class="pager-title">Les modes et les temps</span>
+          <span class="pager-meta">Regresar al listado completo del módulo</span>
+        </a>
+        <a href="le-subjonctif.html" class="pager-card">
+          <span class="pager-label">Suivant</span>
+          <span class="pager-title">Le subjonctif</span>
+          <span class="pager-meta">Siguiente subtema recomendado</span>
+        </a>
+      </div>
+    </section>
+
+<footer style="border-top:1px solid var(--border);background:var(--bg-soft)">
+  <div class="tricolor-bar"></div>
+  <div class="max-w-6xl mx-auto px-5 py-7 flex flex-col md:flex-row items-center justify-between gap-4">
+    <div class="font-display font-bold" style="color:var(--text-dark)">
+      Aprende <span style="color:var(--blue)">Francés</span> Viajando
+    </div>
+    <div class="flex gap-5">
+      <a href="https://www.youtube.com/@Aprende.Frances.Viajando" target="_blank" rel="noopener"
+         style="color:var(--text-muted);transition:color .2s"
+         onmouseover="this.style.color='#dc2626'" onmouseout="this.style.color='var(--text-muted)'">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" fill="currentColor" style="width:1.2rem;height:1.2rem">
+          <path d="M549.65 124.08c-6.28-23.65-24.76-42.16-48.39-48.45C458.8 64 288 64 288 64s-170.8 0-213.26 11.63c-23.63 6.29-42.11 24.8-48.39 48.45C16 166.53 16 256.03 16 256.03s0 89.51 10.35 131.96c6.28 23.65 24.76 42.16 48.39 48.45C117.2 448 288 448 288 448s170.8 0 213.26-11.63c23.63-6.29 42.11-24.8 48.39-48.45C560 345.54 560 256.03 560 256.03s0-89.5-10.35-131.95zM232 338.55V173.51l142.74 82.52L232 338.55z"/>
+        </svg>
+      </a>
+      <a href="https://www.tiktok.com/@AldoJara" target="_blank" rel="noopener"
+         style="color:var(--text-muted);transition:color .2s"
+         onmouseover="this.style.color='var(--blue)'" onmouseout="this.style.color='var(--text-muted)'">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" fill="currentColor" style="width:1.2rem;height:1.2rem">
+          <path d="M448,209.9v102c-45.4,0-87.3-14.7-121.1-39.4V357c0,85.1-68.9,155-153.9,155S19,442.1,19,357S87.9,202,173,202h0.1v102c-23.2,0-44.2,9.4-59.6,24.6c-15.3,15.2-24.7,36.2-24.7,59.4c0,46.4,37.8,84.2,84.3,84.2c46.4,0,84.3-37.8,84.3-84.2V0h95.7c8.5,47.8,49.5,84.8,98.9,84.8V209.9z"/>
+        </svg>
+      </a>
+    </div>
+    <div class="text-xs" style="color:var(--text-light)">© 2026 Aldo Jara — Aprende Francés Viajando</div>
+  </div>
+</footer>
+
+<script>
+  document.querySelectorAll('.resource-tab').forEach(tab => {
+    tab.addEventListener('click', () => {
+      tab.parentElement.querySelectorAll('.resource-tab').forEach(item => item.classList.remove('active'));
+      tab.classList.add('active');
+      const card = tab.closest('.section-card');
+      card.querySelectorAll('.resource-panel').forEach(panel => panel.classList.remove('active'));
+      const panel = card.querySelector('#resource-' + tab.dataset.panel);
+      if (panel) panel.classList.add('active');
+    });
+  });
+</script>
+</body>
+</html>
