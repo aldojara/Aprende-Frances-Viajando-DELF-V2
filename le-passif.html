@@ -324,9 +324,13 @@
       color: var(--text-muted);
       font-weight: 700;
       font-size: .84rem;
+      font-family: inherit;
       box-shadow: var(--shadow-sm);
+      cursor: pointer;
+      transition: all .16s;
     }
-    .video-lang-tab.active {
+    .video-lang-tab.active,
+    .video-lang-tab:hover {
       color: var(--blue);
       border-color: rgba(0,85,164,.28);
       background: linear-gradient(180deg, #ffffff, #f7fbff);
@@ -368,6 +372,16 @@
       font-size: .74rem;
       font-weight: 700;
       box-shadow: var(--shadow-sm);
+    }
+    .video-card.is-hidden {
+      display: none;
+    }
+    .video-empty {
+      display: none;
+      margin-bottom: 1.15rem;
+    }
+    .video-empty.active {
+      display: block;
     }
     .formula-grid {
       display: grid;
@@ -1058,14 +1072,14 @@
         <div id="resource-videos" class="resource-panel active">
           <div class="video-lang-row">
             <div class="video-lang-tabs">
-              <div class="video-lang-tab active">🇪🇸 Español <span class="video-lang-count">2</span></div>
-              <div class="video-lang-tab">🇫🇷 Français <span class="video-lang-count">0</span></div>
-              <div class="video-lang-tab">🌐 Todos <span class="video-lang-count">2</span></div>
+              <button type="button" class="video-lang-tab active" data-video-filter="es" aria-pressed="true">🇪🇸 Español <span class="video-lang-count">2</span></button>
+              <button type="button" class="video-lang-tab" data-video-filter="fr" aria-pressed="false">🇫🇷 Français <span class="video-lang-count">0</span></button>
+              <button type="button" class="video-lang-tab" data-video-filter="all" aria-pressed="false">🌐 Todos <span class="video-lang-count">2</span></button>
             </div>
             <div class="video-lang-hint">La estructura ya está preparada para separar videos en español y en francés dentro de este tema.</div>
           </div>
           <div class="resource-grid mb-5">
-            <article class="media-card">
+            <article class="media-card video-card" data-video-lang="es">
               <div class="media-thumb">
                 <span class="video-lang-badge">Español</span>
                 <div class="play-pill">▶</div>
@@ -1078,7 +1092,7 @@
               </div>
             </article>
 
-            <article class="media-card">
+            <article class="media-card video-card" data-video-lang="es">
               <div class="media-thumb">
                 <span class="video-lang-badge">Español</span>
                 <div class="play-pill">▶</div>
@@ -1090,6 +1104,13 @@
                 <a href="https://www.youtube.com/@Aprende.Frances.Viajando" target="_blank" rel="noopener" class="subtema">Explorar vídeos</a>
               </div>
             </article>
+          </div>
+
+          <div class="video-empty mini-card">
+            <div class="text-sm font-semibold mb-2" style="color:var(--text-dark)">Vídeos en francés</div>
+            <p class="text-sm" style="color:var(--text-muted)">
+              Aún no hay vídeos clasificados en francés para este tema. Cuando los añadas, aparecerán aquí al pulsar <strong>Français</strong>.
+            </p>
           </div>
 
           <div class="grid md:grid-cols-2 gap-4">
@@ -1211,6 +1232,36 @@
       const panel = card.querySelector('#resource-' + tab.dataset.panel);
       if (panel) panel.classList.add('active');
     });
+  });
+  document.querySelectorAll('#resource-videos').forEach(panel => {
+    const videoButtons = panel.querySelectorAll('.video-lang-tab[data-video-filter]');
+    const videoCards = panel.querySelectorAll('.video-card[data-video-lang]');
+    const emptyState = panel.querySelector('.video-empty');
+
+    const applyVideoFilter = filter => {
+      let visible = 0;
+      videoCards.forEach(card => {
+        const match = filter === 'all' || card.dataset.videoLang === filter;
+        card.classList.toggle('is-hidden', !match);
+        if (match) visible += 1;
+      });
+      if (emptyState) emptyState.classList.toggle('active', visible === 0);
+    };
+
+    videoButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        videoButtons.forEach(item => {
+          item.classList.remove('active');
+          item.setAttribute('aria-pressed', 'false');
+        });
+        button.classList.add('active');
+        button.setAttribute('aria-pressed', 'true');
+        applyVideoFilter(button.dataset.videoFilter);
+      });
+    });
+
+    const activeButton = panel.querySelector('.video-lang-tab.active[data-video-filter]');
+    applyVideoFilter(activeButton ? activeButton.dataset.videoFilter : 'all');
   });
 </script>
 </body>
