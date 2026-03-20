@@ -301,6 +301,75 @@
     }
     .resource-panel { display: none; }
     .resource-panel.active { display: block; }
+    .video-lang-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      flex-wrap: wrap;
+      margin-bottom: 1.15rem;
+    }
+    .video-lang-tabs {
+      display: flex;
+      gap: .65rem;
+      flex-wrap: wrap;
+    }
+    .video-lang-tab {
+      display: inline-flex;
+      align-items: center;
+      gap: .55rem;
+      padding: .7rem .95rem;
+      border-radius: .85rem;
+      border: 1.5px solid var(--border);
+      background: var(--bg-white);
+      color: var(--text-muted);
+      font-weight: 700;
+      font-size: .84rem;
+      box-shadow: var(--shadow-sm);
+    }
+    .video-lang-tab.active {
+      color: var(--blue);
+      border-color: rgba(0,85,164,.28);
+      background: linear-gradient(180deg, #ffffff, #f7fbff);
+    }
+    .video-lang-count {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 1.85rem;
+      padding: .12rem .5rem;
+      border-radius: 999px;
+      background: var(--bg-soft);
+      color: var(--text-body);
+      font-size: .72rem;
+      font-weight: 700;
+    }
+    .video-lang-tab.active .video-lang-count {
+      background: rgba(0,85,164,.12);
+      color: var(--blue);
+    }
+    .video-lang-hint {
+      max-width: 26rem;
+      font-size: .85rem;
+      color: var(--text-muted);
+    }
+    .video-lang-badge {
+      position: absolute;
+      top: 1rem;
+      left: 1rem;
+      z-index: 1;
+      display: inline-flex;
+      align-items: center;
+      padding: .3rem .7rem;
+      border-radius: 999px;
+      background: rgba(255,255,255,.92);
+      border: 1px solid rgba(0,0,0,.06);
+      color: var(--text-body);
+      font-family: 'Inter', system-ui, sans-serif;
+      font-size: .74rem;
+      font-weight: 700;
+      box-shadow: var(--shadow-sm);
+    }
     .formula-grid {
       display: grid;
       grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -912,9 +981,18 @@
         </div>
 
         <div id="resource-videos" class="resource-panel active">
+          <div class="video-lang-row">
+            <div class="video-lang-tabs">
+              <div class="video-lang-tab active">🇪🇸 Español <span class="video-lang-count">2</span></div>
+              <div class="video-lang-tab">🇫🇷 Français <span class="video-lang-count">0</span></div>
+              <div class="video-lang-tab">🌐 Todos <span class="video-lang-count">2</span></div>
+            </div>
+            <div class="video-lang-hint">La estructura ya está preparada para separar videos en español y en francés dentro de este tema.</div>
+          </div>
           <div class="resource-grid mb-5">
             <article class="media-card">
               <div class="media-thumb">
+                <span class="video-lang-badge">Español</span>
                 <div class="play-pill">▶</div>
                 Le gérondif
               </div>
@@ -927,6 +1005,7 @@
 
             <article class="media-card">
               <div class="media-thumb">
+                <span class="video-lang-badge">Español</span>
                 <div class="play-pill">▶</div>
                 Comprendre Le gérondif
               </div>
@@ -938,12 +1017,20 @@
             </article>
           </div>
 
-          <div class="mini-card">
-            <div class="text-sm font-semibold mb-2" style="color:var(--text-dark)">Consejo de estudio</div>
-            <p class="text-sm" style="color:var(--text-muted)">
-              Empieza por un recurso visual para fijar la idea general y vuelve después a <strong>Maîtriser le thème</strong>
-              para consolidar la estructura, los ejemplos y la práctica.
-            </p>
+          <div class="grid md:grid-cols-2 gap-4">
+            <div class="mini-card">
+              <div class="text-sm font-semibold mb-2" style="color:var(--text-dark)">Consejo de estudio</div>
+              <p class="text-sm" style="color:var(--text-muted)">
+                Empieza por un recurso visual para fijar la idea general y vuelve después a <strong>Maîtriser le thème</strong>
+                para consolidar la estructura, los ejemplos y la práctica.
+              </p>
+            </div>
+            <div class="mini-card">
+              <div class="text-sm font-semibold mb-2" style="color:var(--text-dark)">Próximo bloque: vídeos en francés</div>
+              <p class="text-sm" style="color:var(--text-muted)">
+                Esta sección ya queda preparada para añadir recursos en francés sin mezclar ambos idiomas en una sola lista.
+              </p>
+            </div>
           </div>
         </div>
 
